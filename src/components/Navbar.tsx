@@ -23,7 +23,7 @@ const Navbar = () => {
     { to: "/", label: "Home" },
     { to: "/book", label: "The Book" },
     { to: "/author", label: "Author" },
-    { to: "/articles", label: "Articles" },
+    { to: "/mentioned", label: "Mentioned" },
     { to: "/examples", label: "Examples" },
     { to: "/seminars", label: "Seminars" },
     { to: "/contact", label: "Contact" }
@@ -42,7 +42,7 @@ const Navbar = () => {
             to="/" 
             className="text-primary font-serif text-xl md:text-2xl font-medium"
           >
-            Ekonomisk Hållbarhet
+            Håll ut!
           </NavLink>
           
           {/* Mobile menu button */}

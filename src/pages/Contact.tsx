@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Mail, Phone, Linkedin, MapPin } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import SectionHeading from "@/components/SectionHeading";
@@ -177,31 +177,6 @@ const Contact = () => {
                     >
                       linkedin.com/in/authorname
                     </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-primary mr-3 mt-1" />
-                  <div>
-                    <h3 className="font-medium">Office Location</h3>
-                    <p className="text-muted-foreground">
-                      Strandvägen 7B<br />
-                      114 56 Stockholm, Sweden
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-10">
-                <h3 className="font-medium mb-4">Office Hours</h3>
-                <div className="space-y-2 text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday:</span>
-                    <span>9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday - Sunday:</span>
-                    <span>Closed</span>
                   </div>
                 </div>
               </div>

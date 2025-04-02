@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
 import Author from "./pages/Author";
-import Articles from "./pages/Articles";
+import Mentioned from "./pages/Mentioned";
 import Examples from "./pages/Examples";
 import Seminars from "./pages/Seminars";
 import Contact from "./pages/Contact";
@@ -27,7 +27,7 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/book" element={<Book />} />
             <Route path="/author" element={<Author />} />
-            <Route path="/articles" element={<Articles />} />
+            <Route path="/mentioned" element={<Mentioned />} />
             <Route path="/examples" element={<Examples />} />
             <Route path="/seminars" element={<Seminars />} />
             <Route path="/contact" element={<Contact />} />

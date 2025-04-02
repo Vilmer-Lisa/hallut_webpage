@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Calendar, MapPin, Clock, Users, DollarSign } from "lucide-react";
+import { Calendar, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import CallToAction from "@/components/CallToAction";
@@ -11,10 +11,7 @@ interface SeminarProps {
   date: string;
   time: string;
   location: string;
-  price: string;
-  capacity: string;
   description: string;
-  topics: string[];
   featured?: boolean;
 }
 
@@ -25,15 +22,7 @@ const seminars: SeminarProps[] = [
     date: "June 15, 2023",
     time: "09:00 - 16:00",
     location: "Stockholm Business Center, Stockholm",
-    price: "€495",
-    capacity: "50 participants",
     description: "A comprehensive workshop on implementing sustainable business practices that drive economic growth and create competitive advantage.",
-    topics: [
-      "How to develop economic models that incorporate sustainability",
-      "Measuring the ROI of sustainability initiatives",
-      "Strategies for communicating economic sustainability to stakeholders",
-      "Case studies from industry-leading organizations"
-    ],
     featured: true
   },
   {
@@ -42,15 +31,7 @@ const seminars: SeminarProps[] = [
     date: "July 22, 2023",
     time: "13:00 - 17:30",
     location: "Gothenburg Conference Hall, Gothenburg",
-    price: "€295",
-    capacity: "75 participants",
-    description: "This seminar explores how sustainability considerations are reshaping investment decisions and capital allocation in modern markets.",
-    topics: [
-      "ESG integration in investment analyses",
-      "Valuation models for sustainable businesses",
-      "Risk assessment frameworks for climate-related financial risks",
-      "Green bonds and sustainable finance instruments"
-    ]
+    description: "This seminar explores how sustainability considerations are reshaping investment decisions and capital allocation in modern markets."
   },
   {
     id: 3,
@@ -58,15 +39,7 @@ const seminars: SeminarProps[] = [
     date: "September 8, 2023",
     time: "10:00 - 15:00",
     location: "Malmö Innovation Center, Malmö",
-    price: "€395",
-    capacity: "40 participants",
-    description: "Learn how circular economy principles can create new revenue streams while reducing costs and environmental impact.",
-    topics: [
-      "Designing products for circularity",
-      "Establishing reverse logistics systems",
-      "Creating value from waste streams",
-      "Building customer loyalty through circular offerings"
-    ]
+    description: "Learn how circular economy principles can create new revenue streams while reducing costs and environmental impact."
   },
   {
     id: 4,
@@ -74,15 +47,7 @@ const seminars: SeminarProps[] = [
     date: "October 12, 2023",
     time: "09:30 - 16:30",
     location: "Online (Virtual Seminar)",
-    price: "€195",
-    capacity: "Unlimited",
-    description: "A practical seminar designed specifically for small and medium-sized enterprises looking to implement sustainable practices on a limited budget.",
-    topics: [
-      "Low-cost sustainability initiatives with high ROI",
-      "Accessing grants and funding for sustainability projects",
-      "Collaborative approaches to sustainability for small businesses",
-      "Marketing sustainability to build customer loyalty"
-    ]
+    description: "A practical seminar designed specifically for small and medium-sized enterprises looking to implement sustainable practices on a limited budget."
   }
 ];
 
@@ -111,29 +76,9 @@ const SeminarCard = ({ seminar }: { seminar: SeminarProps }) => {
             <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5" />
             <span>{seminar.location}</span>
           </div>
-          <div className="flex items-start">
-            <DollarSign className="h-5 w-5 text-primary mr-3 mt-0.5" />
-            <span>{seminar.price}</span>
-          </div>
-          <div className="flex items-start">
-            <Users className="h-5 w-5 text-primary mr-3 mt-0.5" />
-            <span>{seminar.capacity}</span>
-          </div>
         </div>
         
         <p className="text-muted-foreground mb-6">{seminar.description}</p>
-        
-        <div className="mb-6">
-          <h4 className="font-medium mb-3">What You'll Learn:</h4>
-          <ul className="space-y-2">
-            {seminar.topics.map((topic, i) => (
-              <li key={i} className="flex items-start">
-                <span className="text-primary mr-2">✓</span>
-                <span>{topic}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
         
         <Button className="w-full">Register Now</Button>
       </div>

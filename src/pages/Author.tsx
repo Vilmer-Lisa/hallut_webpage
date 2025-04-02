@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -103,47 +102,6 @@ const Author = () => {
             <div className="p-6 bg-white rounded-lg shadow-sm space-y-2 hover:shadow-md transition-shadow">
               <h3 className="font-serif font-medium">Sustainability Reporting</h3>
               <p className="text-sm text-muted-foreground">Effective methods for measuring and communicating sustainability performance.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Publications */}
-      <section className="section">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Selected Publications" 
-            subtitle="Academic and industry-focused works on economic sustainability"
-            align="left"
-          />
-          
-          <div className="space-y-8 mt-8">
-            <div className="p-6 border border-sage-100 bg-white rounded-lg hover:border-sage-200 transition-colors">
-              <h4 className="font-serif text-xl mb-2">Håll ut: så skapar företag en hållbar framtid</h4>
-              <p className="text-muted-foreground mb-4">Timbro Förlag, 2023</p>
-              <p>A comprehensive guide to implementing sustainable economic practices in business environments, featuring case studies, frameworks, and practical strategies.</p>
-              <div className="mt-4">
-                <a 
-                  href="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  Learn More
-                </a>
-              </div>
-            </div>
-            
-            <div className="p-6 border border-sage-100 bg-white rounded-lg hover:border-sage-200 transition-colors">
-              <h4 className="font-serif text-xl mb-2">Economic Sustainability: Theory and Practice</h4>
-              <p className="text-muted-foreground mb-4">Journal of Sustainable Economics, Vol. 28, 2021</p>
-              <p>An academic paper exploring the theoretical foundations of economic sustainability and their practical applications in business contexts.</p>
-            </div>
-            
-            <div className="p-6 border border-sage-100 bg-white rounded-lg hover:border-sage-200 transition-colors">
-              <h4 className="font-serif text-xl mb-2">Measuring the ROI of Sustainability Initiatives</h4>
-              <p className="text-muted-foreground mb-4">Business Strategy Review, Issue 3, 2020</p>
-              <p>A research study quantifying the financial returns of various sustainability initiatives across different industries and company sizes.</p>
             </div>
           </div>
         </div>
