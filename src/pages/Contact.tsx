@@ -46,7 +46,10 @@ const Contact = () => {
   return (
     <>
       {/* Contact Hero */}
-      <section className="relative bg-sage-50 pt-16 pb-24">
+      <section className="relative bg-secondary pt-16 pb-24">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="blue-pattern w-full h-full"></div>
+        </div>
         <div className="content-wrapper">
           <SectionHeading 
             title="Get in Touch" 
@@ -180,38 +183,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="section bg-secondary">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Frequently Asked Questions" 
-            subtitle="Common questions about the book and our services"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-serif text-lg font-medium mb-3">Is the book available internationally?</h3>
-              <p className="text-muted-foreground">Yes, the book is available for shipping worldwide through our publisher's website and major online book retailers.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-serif text-lg font-medium mb-3">Do you offer bulk discounts for organizations?</h3>
-              <p className="text-muted-foreground">Yes, we offer special pricing for bulk orders of 10 or more books. Please contact us directly for a quote.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-serif text-lg font-medium mb-3">How can I book the author for a speaking engagement?</h3>
-              <p className="text-muted-foreground">You can submit a request through our contact form, specifying the event details, date, and topic you'd like the author to address.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-serif text-lg font-medium mb-3">Are seminars available as virtual events?</h3>
-              <p className="text-muted-foreground">Yes, many of our seminars are offered in both in-person and virtual formats to accommodate different preferences and locations.</p>
             </div>
           </div>
         </div>

@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, LineChart, Building } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import CallToAction from "@/components/CallToAction";
 
 const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-sage-50 to-background min-h-[90vh] flex items-center">
+      <section className="relative bg-gradient-to-b from-secondary to-background min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="book-pattern w-full h-full"></div>
+        </div>
         <div className="content-wrapper">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium mb-6 animate-fade-in">
@@ -45,24 +47,24 @@ const Home = () => {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-6 bg-sage-50 rounded-lg space-y-4">
-              <div className="h-12 w-12 bg-sage-100 text-primary rounded-full flex items-center justify-center">
+            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <TrendingUp size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Economic Growth</h3>
               <p className="text-muted-foreground">Learn how sustainable practices can fuel long-term growth and stability in competitive markets.</p>
             </div>
             
-            <div className="p-6 bg-sage-50 rounded-lg space-y-4">
-              <div className="h-12 w-12 bg-sage-100 text-primary rounded-full flex items-center justify-center">
+            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <LineChart size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Data-Driven Insights</h3>
               <p className="text-muted-foreground">Explore real-world metrics that demonstrate the economic advantages of sustainable business models.</p>
             </div>
             
-            <div className="p-6 bg-sage-50 rounded-lg space-y-4">
-              <div className="h-12 w-12 bg-sage-100 text-primary rounded-full flex items-center justify-center">
+            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <Building size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Organizational Strategies</h3>
@@ -72,46 +74,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Articles */}
-      <section className="section-slim bg-secondary">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Featured Insights" 
-            subtitle="The latest articles exploring sustainable economic practices."
-            align="left"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <article className="group">
-              <div className="aspect-video bg-muted rounded-lg mb-4"></div>
-              <h3 className="text-xl font-serif font-medium group-hover:text-primary transition-colors">
-                <Link to="/articles/sustainable-profit-models">The Economics of Sustainable Profit Models</Link>
-              </h3>
-              <p className="text-muted-foreground mt-2">How companies are finding new ways to balance profit with purpose in today's economy.</p>
-            </article>
-            
-            <article className="group">
-              <div className="aspect-video bg-muted rounded-lg mb-4"></div>
-              <h3 className="text-xl font-serif font-medium group-hover:text-primary transition-colors">
-                <Link to="/articles/measuring-sustainability">Measuring Sustainability: Beyond Financial Metrics</Link>
-              </h3>
-              <p className="text-muted-foreground mt-2">Innovative approaches to evaluate the true impact of sustainability initiatives on business performance.</p>
-            </article>
-          </div>
-          
-          <div className="mt-8 text-right">
-            <Button asChild variant="ghost" className="group">
-              <Link to="/articles">
-                View all articles
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Next Seminar */}
-      <section className="section bg-white">
+      <section className="section bg-secondary">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="blue-pattern w-full h-full"></div>
+        </div>
         <div className="content-wrapper">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -134,47 +101,23 @@ const Home = () => {
                   <div>Stockholm Business Center, Strandvägen 7B, Stockholm</div>
                 </div>
               </div>
-              <Button asChild>
+              <Button asChild className="bg-primary hover:bg-primary/90">
                 <Link to="/seminars">Register Now</Link>
               </Button>
             </div>
             
-            <div className="bg-sage-50 p-8 rounded-lg">
-              <h4 className="text-lg font-medium mb-4">What You'll Learn:</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-200 flex items-center justify-center text-primary mr-3 mt-0.5">1</div>
-                  <div>How to develop economic models that incorporate sustainability</div>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-200 flex items-center justify-center text-primary mr-3 mt-0.5">2</div>
-                  <div>Measuring the ROI of sustainability initiatives</div>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-200 flex items-center justify-center text-primary mr-3 mt-0.5">3</div>
-                  <div>Strategies for communicating economic sustainability to stakeholders</div>
-                </li>
-                <li className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-200 flex items-center justify-center text-primary mr-3 mt-0.5">4</div>
-                  <div>Case studies from industry-leading organizations</div>
-                </li>
-              </ul>
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="aspect-[3/4] w-full bg-primary/10 rounded-md relative overflow-hidden">
+                <div className="absolute inset-0 blue-pattern opacity-10"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-24 h-24 blue-gradient rounded-full flex items-center justify-center">
+                    <span className="text-white font-serif text-xl">Håll ut!</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="section bg-sage-900 text-white">
-        <CallToAction 
-          title="Ready to transform your approach to economic sustainability?"
-          description="Get your copy of 'Håll ut: så skapar företag en hållbar framtid' and start building a more sustainable and profitable future for your business."
-          buttonText="Get the Book"
-          buttonLink="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/"
-          isExternal={true}
-          variant="outline"
-          className="text-white"
-        />
       </section>
     </>
   );

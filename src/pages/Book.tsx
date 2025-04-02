@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Award, Users } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import CallToAction from "@/components/CallToAction";
 
 const Book = () => {
   return (
     <>
       {/* Book Hero */}
-      <section className="relative bg-sage-50 pt-16 pb-24">
+      <section className="relative bg-secondary pt-16 pb-24">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="blue-pattern w-full h-full"></div>
+        </div>
         <div className="content-wrapper">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -40,8 +42,15 @@ const Book = () => {
             </div>
             
             <div className="relative mx-auto">
-              <div className="aspect-[3/4] w-full max-w-md bg-sage-200 rounded-lg shadow-lg"></div>
-              {/* This would be where the book cover image would go */}
+              <div className="aspect-[3/4] w-full max-w-md bg-primary rounded-lg shadow-lg overflow-hidden">
+                <div className="absolute inset-0 blue-pattern opacity-10"></div>
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <div className="text-white text-center">
+                    <div className="font-serif text-4xl mb-4">Håll ut!</div>
+                    <div className="text-lg opacity-90">så skapar företag en hållbar framtid</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -82,7 +91,7 @@ const Book = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="p-6 bg-white rounded-lg shadow-sm space-y-4">
-              <div className="h-12 w-12 bg-sage-50 text-primary rounded-full flex items-center justify-center">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <BookOpen size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Economic Value of Sustainability</h3>
@@ -90,7 +99,7 @@ const Book = () => {
             </div>
             
             <div className="p-6 bg-white rounded-lg shadow-sm space-y-4">
-              <div className="h-12 w-12 bg-sage-50 text-primary rounded-full flex items-center justify-center">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <Award size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Competitive Advantage</h3>
@@ -98,7 +107,7 @@ const Book = () => {
             </div>
             
             <div className="p-6 bg-white rounded-lg shadow-sm space-y-4">
-              <div className="h-12 w-12 bg-sage-50 text-primary rounded-full flex items-center justify-center">
+              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <Users size={24} />
               </div>
               <h3 className="text-xl font-serif font-medium">Stakeholder Engagement</h3>
@@ -118,27 +127,27 @@ const Book = () => {
           />
           
           <div className="mt-8 space-y-6">
-            <div className="p-5 border-l-4 border-sage-200 hover:border-primary transition-colors bg-white">
+            <div className="p-5 border-l-4 border-primary hover:bg-secondary transition-colors">
               <h4 className="font-serif text-lg font-medium">Chapter 1: The Economic Case for Sustainability</h4>
               <p className="text-muted-foreground mt-1">Understanding why sustainable practices are not just good for the planet but essential for long-term business success.</p>
             </div>
             
-            <div className="p-5 border-l-4 border-sage-200 hover:border-primary transition-colors bg-white">
+            <div className="p-5 border-l-4 border-primary hover:bg-secondary transition-colors">
               <h4 className="font-serif text-lg font-medium">Chapter 2: Measuring What Matters</h4>
               <p className="text-muted-foreground mt-1">Moving beyond traditional financial metrics to evaluate true economic sustainability.</p>
             </div>
             
-            <div className="p-5 border-l-4 border-sage-200 hover:border-primary transition-colors bg-white">
+            <div className="p-5 border-l-4 border-primary hover:bg-secondary transition-colors">
               <h4 className="font-serif text-lg font-medium">Chapter 3: Sustainable Business Models</h4>
               <p className="text-muted-foreground mt-1">Innovative approaches that combine profitability with positive environmental and social impact.</p>
             </div>
             
-            <div className="p-5 border-l-4 border-sage-200 hover:border-primary transition-colors bg-white">
+            <div className="p-5 border-l-4 border-primary hover:bg-secondary transition-colors">
               <h4 className="font-serif text-lg font-medium">Chapter 4: Supply Chain Transformation</h4>
               <p className="text-muted-foreground mt-1">Creating resilient and responsible supply networks that minimize risk and maximize value.</p>
             </div>
             
-            <div className="p-5 border-l-4 border-sage-200 hover:border-primary transition-colors bg-white">
+            <div className="p-5 border-l-4 border-primary hover:bg-secondary transition-colors">
               <h4 className="font-serif text-lg font-medium">Chapter 5: Financial Strategies for Sustainability</h4>
               <p className="text-muted-foreground mt-1">How to fund sustainability initiatives and demonstrate ROI to investors and stakeholders.</p>
             </div>
@@ -147,12 +156,12 @@ const Book = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section bg-sage-50">
+      <section className="section blue-gradient text-white">
         <div className="content-wrapper">
-          <SectionHeading title="What Leaders Are Saying" />
+          <SectionHeading title="What Leaders Are Saying" className="text-white" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <blockquote className="p-6 bg-white rounded-lg shadow-sm">
+            <blockquote className="p-6 bg-white/10 rounded-lg backdrop-blur-sm">
               <p className="text-lg italic mb-6">
                 "A groundbreaking work that finally bridges the perceived gap between economic performance and sustainability. This book provides the roadmap every executive needs."
               </p>
@@ -161,7 +170,7 @@ const Book = () => {
               </footer>
             </blockquote>
             
-            <blockquote className="p-6 bg-white rounded-lg shadow-sm">
+            <blockquote className="p-6 bg-white/10 rounded-lg backdrop-blur-sm">
               <p className="text-lg italic mb-6">
                 "The case studies alone make this book worth its weight in gold. A practical guide backed by solid research and real-world applications."
               </p>
@@ -171,19 +180,6 @@ const Book = () => {
             </blockquote>
           </div>
         </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="section bg-sage-900 text-white">
-        <CallToAction 
-          title="Ready to transform your approach to economic sustainability?"
-          description="Get your copy of 'Håll ut: så skapar företag en hållbar framtid' and start building a more sustainable and profitable future for your business."
-          buttonText="Purchase Now"
-          buttonLink="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/"
-          isExternal={true}
-          variant="outline"
-          className="text-white"
-        />
       </section>
     </>
   );

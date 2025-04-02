@@ -3,7 +3,6 @@ import React from "react";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
-import CallToAction from "@/components/CallToAction";
 
 interface SeminarProps {
   id: number;
@@ -53,9 +52,9 @@ const seminars: SeminarProps[] = [
 
 const SeminarCard = ({ seminar }: { seminar: SeminarProps }) => {
   return (
-    <div className={`border rounded-lg overflow-hidden ${seminar.featured ? 'border-primary shadow-md' : 'border-sage-100'}`}>
+    <div className={`border rounded-lg overflow-hidden ${seminar.featured ? 'border-primary shadow-md' : 'border-border'}`}>
       {seminar.featured && (
-        <div className="bg-primary text-white px-4 py-1 text-sm font-medium text-center">
+        <div className="blue-gradient text-white px-4 py-1 text-sm font-medium text-center">
           Featured Seminar
         </div>
       )}
@@ -90,7 +89,10 @@ const Seminars = () => {
   return (
     <>
       {/* Seminars Hero */}
-      <section className="relative bg-sage-50 pt-16 pb-24">
+      <section className="relative bg-secondary pt-16 pb-24">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="blue-pattern w-full h-full"></div>
+        </div>
         <div className="content-wrapper">
           <SectionHeading 
             title="Upcoming Seminars & Workshops" 
@@ -124,51 +126,57 @@ const Seminars = () => {
       </section>
 
       {/* Custom Workshops */}
-      <section className="section">
+      <section className="section blue-gradient text-white">
         <div className="content-wrapper">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-serif font-medium mb-6">Custom Workshops for Organizations</h2>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-white/80 mb-6">
                 We offer tailored workshops designed specifically for your organization's unique challenges and opportunities. Our expert-led sessions provide practical guidance for implementing economic sustainability principles within your specific industry and business context.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-100 flex items-center justify-center text-primary mr-3 mt-0.5">✓</div>
+                  <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center text-white mr-3 mt-0.5">✓</div>
                   <div>Customized content for your industry and challenges</div>
                 </div>
                 <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-100 flex items-center justify-center text-primary mr-3 mt-0.5">✓</div>
+                  <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center text-white mr-3 mt-0.5">✓</div>
                   <div>Interactive exercises using real data from your company</div>
                 </div>
                 <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-100 flex items-center justify-center text-primary mr-3 mt-0.5">✓</div>
+                  <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center text-white mr-3 mt-0.5">✓</div>
                   <div>Follow-up support to help implement key learnings</div>
                 </div>
                 <div className="flex items-start">
-                  <div className="h-6 w-6 rounded-full bg-sage-100 flex items-center justify-center text-primary mr-3 mt-0.5">✓</div>
+                  <div className="h-6 w-6 rounded-full bg-white/20 flex items-center justify-center text-white mr-3 mt-0.5">✓</div>
                   <div>Available for in-person or virtual delivery</div>
                 </div>
               </div>
               
-              <Button>Request Information</Button>
+              <Button variant="outline" className="text-white border-white/50 hover:bg-white/10">Request Information</Button>
             </div>
             
             <div>
-              <div className="aspect-square bg-sage-100 rounded-lg"></div>
+              <div className="aspect-square bg-white/10 rounded-lg overflow-hidden relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <span className="font-serif text-3xl">Håll ut!</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="section bg-sage-50">
+      <section className="section bg-white">
         <div className="content-wrapper">
           <SectionHeading title="What Past Attendees Say" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <blockquote className="p-6 bg-white rounded-lg shadow-sm">
+            <blockquote className="p-6 bg-secondary rounded-lg">
               <p className="italic mb-6">
                 "The workshop provided concrete tools that we've been able to implement immediately. Within three months, we've already seen a return on our investment."
               </p>
@@ -177,7 +185,7 @@ const Seminars = () => {
               </footer>
             </blockquote>
             
-            <blockquote className="p-6 bg-white rounded-lg shadow-sm">
+            <blockquote className="p-6 bg-secondary rounded-lg">
               <p className="italic mb-6">
                 "The practical approach sets these seminars apart from others. Instead of just theory, we walked away with a customized action plan for our business."
               </p>
@@ -186,7 +194,7 @@ const Seminars = () => {
               </footer>
             </blockquote>
             
-            <blockquote className="p-6 bg-white rounded-lg shadow-sm">
+            <blockquote className="p-6 bg-secondary rounded-lg">
               <p className="italic mb-6">
                 "As a small business owner, I was skeptical about whether sustainability could work for us economically. This seminar changed my perspective entirely."
               </p>
@@ -196,18 +204,6 @@ const Seminars = () => {
             </blockquote>
           </div>
         </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="section bg-sage-900 text-white">
-        <CallToAction 
-          title="Ready to enhance your sustainability knowledge?"
-          description="Register for one of our upcoming seminars or contact us to discuss custom workshops for your organization."
-          buttonText="View All Events"
-          buttonLink="/seminars"
-          variant="outline"
-          className="text-white"
-        />
       </section>
     </>
   );
