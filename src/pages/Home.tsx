@@ -1,11 +1,13 @@
 
 import React from "react";
+import { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, LineChart, Building } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import Case from '../components/ui/case';
 
-const Home = () => {
+const Home = () =>{
   return (
     <>
       {/* Hero Section */}
@@ -42,7 +44,7 @@ const Home = () => {
       <section className="section bg-white">
         <div className="content-wrapper">
           <SectionHeading 
-            title="The Economics of Sustainability" 
+            title="Vad är håll ut?" 
             subtitle="Discover how leading companies are implementing sustainable economic practices that drive both profit and positive impact."
           />
           
@@ -51,7 +53,7 @@ const Home = () => {
               <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <TrendingUp size={24} />
               </div>
-              <h3 className="text-xl font-serif font-medium">Economic Growth</h3>
+              <h3 className="text-xl font-serif font-medium">Värderingar</h3>
               <p className="text-muted-foreground">Learn how sustainable practices can fuel long-term growth and stability in competitive markets.</p>
             </div>
             
@@ -59,7 +61,7 @@ const Home = () => {
               <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <LineChart size={24} />
               </div>
-              <h3 className="text-xl font-serif font-medium">Data-Driven Insights</h3>
+              <h3 className="text-xl font-serif font-medium">Lagar</h3>
               <p className="text-muted-foreground">Explore real-world metrics that demonstrate the economic advantages of sustainable business models.</p>
             </div>
             
@@ -67,7 +69,7 @@ const Home = () => {
               <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
                 <Building size={24} />
               </div>
-              <h3 className="text-xl font-serif font-medium">Organizational Strategies</h3>
+              <h3 className="text-xl font-serif font-medium">Riskhantering</h3>
               <p className="text-muted-foreground">Discover frameworks for implementing sustainability at every level of your organization.</p>
             </div>
           </div>
@@ -75,49 +77,13 @@ const Home = () => {
       </section>
 
       {/* Next Seminar */}
+      
       <section className="section bg-secondary">
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="blue-pattern w-full h-full"></div>
-        </div>
-        <div className="content-wrapper">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-serif mb-6">Join Our Next Seminar</h2>
-              <h3 className="text-xl font-medium mb-2">Strategic Sustainability for Economic Growth</h3>
-              <p className="text-muted-foreground mb-6">
-                A comprehensive workshop on implementing sustainable business practices that drive economic growth and create competitive advantage.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-start">
-                  <div className="w-24 font-medium">Date:</div>
-                  <div>June 15, 2023</div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-24 font-medium">Time:</div>
-                  <div>09:00 - 16:00</div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-24 font-medium">Location:</div>
-                  <div>Stockholm Business Center, Strandvägen 7B, Stockholm</div>
-                </div>
-              </div>
-              <Button asChild className="bg-primary hover:bg-primary/90">
-                <Link to="/seminars">Register Now</Link>
-              </Button>
-            </div>
-            
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="aspect-[3/4] w-full bg-primary/10 rounded-md relative overflow-hidden">
-                <div className="absolute inset-0 blue-pattern opacity-10"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 blue-gradient rounded-full flex items-center justify-center">
-                    <span className="text-white font-serif text-xl">Håll ut!</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Articles</h1>
+    
+      <Case />
+    </div>
       </section>
     </>
   );
