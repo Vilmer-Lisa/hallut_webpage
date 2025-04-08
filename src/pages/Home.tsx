@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, LineChart, Building } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import Case from '../components/ui/case';
+import Article from '../strapi-components/article';
+import Case from '../strapi-components/case';
 
 const Home = () =>{
   return (
@@ -82,7 +83,16 @@ const Home = () =>{
       <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Articles</h1>
     
-      <Case />
+      <Article/>
+
+    </div>
+      </section>
+      <section className="section bg-secondary">
+      <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Cases</h1>
+    
+      <Case/>
+
     </div>
       </section>
     </>

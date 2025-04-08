@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
 interface Case {
+  id: number;
   title: string;
   subheading: string;
   text: string;
@@ -9,23 +10,23 @@ interface Case {
 }
 
 interface DataContextType {
-  Cases: Case[];
+  cases: Case[];
 }
 
-export const DataContext = createContext<DataContextType>({ Cases: [] });
+export const DataContext = createContext<DataContextType>({ cases: [] });
 
 interface CaseProviderProps {
   children: ReactNode;
 }
 
 const CaseProvider: React.FC<CaseProviderProps> = ({ children }) => {
-  const [Cases, setCases] = useState<Case[]>([]);
+  const [cases, setCases] = useState<Case[]>([]);
 
   useEffect(() => {
     axios
       .get('http://localhost:1337/api/cases')
       .then((response) => {
-        console.log("Strapi response:", response.data.data);
+        console.log("Strapi response case:", response.data.data);
         setCases(response.data.data);
       })
       .catch((error) => {
@@ -34,7 +35,7 @@ const CaseProvider: React.FC<CaseProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ Cases }}>
+    <DataContext.Provider value={{ cases }}>
       {children}
     </DataContext.Provider>
   );

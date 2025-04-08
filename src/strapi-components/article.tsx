@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../strapi-data/ArticleProvider'; 
+import { DataContext } from '../strapi-data/ArticleProvider'; 
 
-const Case: React.FC = () => {
+const Article: React.FC = () => {
   const { articles } = useContext(DataContext);
 
   return (
@@ -15,4 +15,4 @@ const Case: React.FC = () => {
   );
 };
 
-export default Case;
+export default Article;
