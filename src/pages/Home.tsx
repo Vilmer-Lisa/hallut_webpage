@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, LineChart, Building } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import Article from '../strapi-components/article';
+import HArticle from '../strapi-components/HistoricalArticle';
 import Case from '../strapi-components/case';
 
 const Home = () =>{
@@ -80,20 +81,11 @@ const Home = () =>{
       {/* Next Seminar */}
       
       <section className="section bg-secondary">
-      <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Articles</h1>
+        <div className="p-6">
     
-      <Article/>
+        <HArticle/>
 
-    </div>
-      </section>
-      <section className="section bg-secondary">
-      <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Cases</h1>
-    
-      <Case/>
-
-    </div>
+        </div>
       </section>
     </>
   );
