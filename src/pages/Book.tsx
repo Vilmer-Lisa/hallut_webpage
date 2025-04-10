@@ -17,10 +17,10 @@ const Book = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-serif font-medium mb-6">
-                Håll ut: så skapar företag en hållbar framtid
+                Håll ut!
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                A pioneering work on economic sustainability that bridges theory and practice for businesses of all sizes.
+              Så skapar företag en hållbar framtid
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="group">
@@ -29,27 +29,20 @@ const Book = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    Purchase Book
+                    Läs mer 
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link to="/examples">
-                    See Case Studies
-                  </Link>
                 </Button>
               </div>
             </div>
             
             <div className="relative mx-auto">
-              <div className="aspect-[3/4] w-full max-w-md bg-primary rounded-lg shadow-lg overflow-hidden">
-                <div className="absolute inset-0 blue-pattern opacity-10"></div>
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div className="text-white text-center">
-                    <div className="font-serif text-4xl mb-4">Håll ut!</div>
-                    <div className="text-lg opacity-90">så skapar företag en hållbar framtid</div>
-                  </div>
-                </div>
+            <div className="mx-auto w-full max-w-md shadow-lg">
+                <img 
+                  src="/hallut.png" 
+                  alt="Descriptive alt text" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
