@@ -56,8 +56,8 @@ const Home = () =>{
   variant="outline"
   className="text-white border-2 border-white bg-transparent hover:text-black hover:bg-white"
 >
-  <Link to="/seminars">
-    Upcoming Seminars
+  <Link to="/events">
+    Upcoming events
   </Link>
 </Button>
 </div>

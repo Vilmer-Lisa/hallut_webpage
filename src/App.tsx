@@ -11,6 +11,7 @@ import Author from "./pages/Author";
 import Mentioned from "./pages/Mentioned";
 import Examples from "./pages/Examples";
 import Contact from "./pages/Contact";
+import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/book" element={<Book />} />
             <Route path="/mentioned" element={<Mentioned />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/events" element={<Events />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
