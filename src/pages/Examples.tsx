@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import CallToAction from "@/components/CallToAction";
+import HArticle from '../strapi-components/HistoricalArticle';
 
 const Examples = () => {
   const caseStudies = [
@@ -57,68 +58,7 @@ const Examples = () => {
 
       {/* Case Studies Overview */}
       <section className="section">
-        <div className="content-wrapper">
-          <div className="grid grid-cols-1 gap-16">
-            {caseStudies.map((study, index) => (
-              <div key={study.id} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className={index % 2 === 0 ? "order-1 md:order-1" : "order-1 md:order-2"}>
-                  <div className="aspect-video bg-sage-100 rounded-lg"></div>
-                </div>
-                
-                <div className={index % 2 === 0 ? "order-2 md:order-2" : "order-2 md:order-1"}>
-                  <div className="text-primary font-medium mb-2">{study.company}</div>
-                  <h3 className="text-2xl font-serif font-medium mb-4">{study.title}</h3>
-                  <p className="text-muted-foreground mb-6">{study.excerpt}</p>
-                  
-                  <div className="bg-sage-50 p-6 rounded-lg mb-6">
-                    <h4 className="font-medium mb-3">Key Results:</h4>
-                    <ul className="space-y-2">
-                      {study.results.map((result, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="text-primary mr-2">✓</span>
-                          <span>{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <Button variant="outline" className="group">
-                    Read Full Case Study
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Principles Section */}
-      <section className="section bg-sage-900 text-white">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Key Sustainability Principles" 
-            subtitle="Fundamental economic concepts from the book demonstrated in the case studies"
-            className="text-white"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-6 bg-sage-800 rounded-lg border border-sage-700">
-              <h3 className="text-xl font-serif font-medium mb-3">Long-term Value Creation</h3>
-              <p>Moving beyond quarterly thinking to make investments that deliver sustained economic returns over time.</p>
-            </div>
-            
-            <div className="p-6 bg-sage-800 rounded-lg border border-sage-700">
-              <h3 className="text-xl font-serif font-medium mb-3">Resource Optimization</h3>
-              <p>Finding innovative ways to do more with less, reducing costs while minimizing environmental impact.</p>
-            </div>
-            
-            <div className="p-6 bg-sage-800 rounded-lg border border-sage-700">
-              <h3 className="text-xl font-serif font-medium mb-3">Stakeholder Economics</h3>
-              <p>Creating value for all stakeholders, including customers, employees, communities, and shareholders.</p>
-            </div>
-          </div>
-        </div>
+       <HArticle/>
       </section>
 
       {/* Implementation Framework */}
