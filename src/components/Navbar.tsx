@@ -23,8 +23,8 @@ const Navbar = () => {
     { to: "/", label: "Startsida" },
     { to: "/examples", label: "Case" },
     { to: "/book", label: "Boken" },
-    { to: "/mentioned", label: "Läs mer" },
-    { to: "/author", label: "Emma Ihre" },
+    { to: "/mentioned", label: "Ytterligare läsning" },
+    { to: "/author", label: "Författaren" },
     { to: "/contact", label: "Kontakt" }
   ];
 

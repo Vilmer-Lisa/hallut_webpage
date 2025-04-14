@@ -7,7 +7,7 @@ const HistoricalArticle = () => {
   return (
     <section className="py-16">
         {cases.map((singleCase) => (
-        <div className="container-custom mx-32">
+        <div className="container-custom mx-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="order-2 lg:order-1">
                 <h2 className="text-3xl md:text-4xl font-bold font-serif text-econ-primary mb-4">

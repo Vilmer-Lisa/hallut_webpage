@@ -4,45 +4,54 @@ import axios from 'axios';
 interface ImageData {
   url:string; 
 }
+interface DataContextType {
+  BookPage: BookPage | null;
+}
+interface KeyTheme {
+  title: string;
+  description: string;
+}
+
+interface Chapter {
+  title: string;
+  content: string;
+}
 
 interface BookPage {
   BookName: string;
-  Shortdescription: string;
+  ShortDescription: string;
   paragraph1: string;
   paragraph2: string;
   paragraph3: string;
-  keythemes: string; 
-  chapters: string;
+  keythemes: { title: string; text: string }[];
+  chapters: { chapterNr: number; name: string; description: string }[];
+  quotes: { quote: string; author: string }[];
   image: ImageData;
 }
 
-interface DataContextType {
-  BookPages: BookPage[];
-}
-
-export const DataContext = createContext<DataContextType>({ BookPages: [] });
+export const DataContext = createContext<DataContextType>({ BookPage: null});
 
 interface BookPageProviderProps {
   children: ReactNode;
 }
 
 const BookPageProvider: React.FC<BookPageProviderProps> = ({ children }) => {
-  const [BookPages, setBookPages] = useState<BookPage[]>([]);
-  console.log("BookPages:", BookPages); 
+  const [BookPage, setBookPage] = useState<BookPage | null>(null);
+
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/BookPage?populate=image')
+    .get('http://localhost:1337/api/book-page?populate=*')
       .then((response) => {
-        console.log("Strapi response BookPage:", response.data.data);
-        setBookPages(response.data.data);
+        console.log("Strapi response case:", response.data.data);
+        setBookPage(response.data.data);
       })
       .catch((error) => {
-        console.error('Error fetching BookPages:', error);
+        console.error('Error fetching Cases:', error);
       });
   }, []);
 
   return (
-    <DataContext.Provider value={{ BookPages }}>
+    <DataContext.Provider value={{ BookPage }}>
       {children}
     </DataContext.Provider>
   );
