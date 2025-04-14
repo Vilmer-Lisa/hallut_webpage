@@ -7,36 +7,36 @@ import EventCard from "@/components/ui/eventcard";
 const events = [
   {
     id: 1,
-    title: "Nyhet! Studio Akavia AI",
+    title: "Boksläpp och panelsamtal",
     description: "Vad innebär artificiell intelligens för framtidens arbetsliv, hur kan du komma att påverkas och vilka nya trender är viktiga att hålla koll på i en ständigt snabbföränderlig värld?",
     date: "26 mars 2025",
     time: "12:00 - 12:00",
     location: "Online",
     type: "Livestream",
     audience: "För vem: Yrkesverksam",
-    image: "/lovable-uploads/06206a2b-818d-4914-b26a-992ecb1769e8.png"
+    image: "img/timbro.jpg"
   },
   {
     id: 2,
-    title: "Trendspaning: Livslångt lärande i AI-eran",
+    title: "Hug på almedalsvecka",
     description: "I en värld där AI revolutionerar arbetslivet blir livslångt lärande inte bara en möjlighet utan en nödvändighet. Vilka kompetenser krävs för att möta framtidens utmaningar? Hur kan vi som individer...",
     date: "8 maj 2025",
     time: "11:30 - 12:15",
     location: "Online - Webbinarium",
     type: "Platser kvar",
     audience: "För vem: Yrkesverksam",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=300&auto=format&fit=crop"
+    image: "img/hug.webp"
   },
   {
     id: 3,
-    title: "Det bästa kanske inte har hänt än - hitta rätt mitt i arbetslivet",
+    title: "Frukostseminarium med Kivra",
     description: "Varannan svensk uppger att de vill byta jobb eller bransch och fyra av tio ångrar sitt yrkesval. Hur vet man om det är dags att söka sig vidare och hur kommer man fram till vad man verkligen vill...",
     date: "14 maj 2025",
     time: "11:30 - 12:15",
     location: "Online - Webbinarium",
     type: "Platser kvar",
     audience: "För vem: Yrkesverksam",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=300&auto=format&fit=crop"
+    image: "img/kivra.png"
   }
 ];
 
