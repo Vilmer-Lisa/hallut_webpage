@@ -8,6 +8,9 @@ import SectionHeading from "@/components/SectionHeading";
 import Article from '../strapi-components/article';
 import HAlink from '../strapi-components/HAlink';
 import Case from '../strapi-components/case';
+import AboutConcept from "@/components/ui/aboutConcept";
+import Journey from "@/components/ui/journey";
+import Quote from "@/components/ui/quote";
 
 const Home = () =>{
   return (
@@ -56,8 +59,8 @@ const Home = () =>{
   variant="outline"
   className="text-white border-2 border-white bg-transparent hover:text-black hover:bg-white"
 >
-  <Link to="/seminars">
-    Upcoming Seminars
+  <Link to="/events">
+    Upcoming events
   </Link>
 </Button>
 </div>
@@ -65,42 +68,14 @@ const Home = () =>{
   </div>
 </section>
 
-
-      {/* Book Overview */}
-      <section className="section bg-white">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Vad är håll ut?" 
-            subtitle="Discover how leading companies are implementing sustainable economic practices that drive both profit and positive impact."
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
-              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
-                <TrendingUp size={24} />
-              </div>
-              <h3 className="text-xl font-serif font-medium">Värderingar</h3>
-              <p className="text-muted-foreground">Learn how sustainable practices can fuel long-term growth and stability in competitive markets.</p>
-            </div>
-            
-            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
-              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
-                <LineChart size={24} />
-              </div>
-              <h3 className="text-xl font-serif font-medium">Lagar</h3>
-              <p className="text-muted-foreground">Explore real-world metrics that demonstrate the economic advantages of sustainable business models.</p>
-            </div>
-            
-            <div className="p-6 bg-secondary rounded-lg space-y-4 hover:shadow-md transition-shadow">
-              <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
-                <Building size={24} />
-              </div>
-              <h3 className="text-xl font-serif font-medium">Riskhantering</h3>
-              <p className="text-muted-foreground">Discover frameworks for implementing sustainability at every level of your organization.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+{/* Concept Visualization */}
+<section className="bg-white">
+  <div className="">
+    <Journey />
+    <Quote />
+    <AboutConcept />
+  </div>
+</section>
 
       {/* Next Seminar */}
       
