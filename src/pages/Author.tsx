@@ -1,9 +1,21 @@
 import React from "react";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const Author = () => {
+  const quotes = [
+    {
+      quote: "Min yrkesmässiga mission är att hjälpa företag och investerare " + 
+      "att vara ett verktyg för att skapa långsiktigt värde för flera.",
+    },
+    {
+      quote: "Min önskan för egen del är att den dag jag lämnar in ha bidragit med "+ 
+      "mer än vad jag tagit och ha så roligt som möjligt på vägen",
+    },
+  ];
   return (
     <>
       {/* Author Hero */}
@@ -12,19 +24,26 @@ const Author = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div className="mx-auto md:col-span-1">
               <div className="aspect-square w-64 md:w-full max-w-xs bg-sage-200 rounded-full overflow-hidden border-4 border-white shadow-md">
-                {/* Author image would go here */}
+              <img
+                src={"../emma.JPG"}
+                alt="Book cover"
+                className="w-64 rounded"
+              />
               </div>
             </div>
             
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-serif font-medium mb-3">
-                Author Name
+                Emma Ihre
               </h1>
               <p className="text-lg text-primary mb-4">
-                Economist & Sustainability Expert
+                Skapare av Håll ut!
               </p>
               <p className="text-muted-foreground mb-6">
-                A leading voice in the field of economic sustainability, combining academic expertise with practical business experience to guide companies toward sustainable growth and profitability.
+              Emma Ihre har under flera decennier varit en central gestalt inom hållbarhetsområdet, 
+              med en omfattande erfarenhet som sträcker sig över både offentlig och privat sektor. 
+              Hennes karriär inleddes inom finansiell analys och värdepappershandel, 
+              där hon tidigt engagerade sig i utvecklingen av etiska och hållbara investeringar. ​
               </p>
               <div className="flex space-x-4">
                 <a 
@@ -57,69 +76,93 @@ const Author = () => {
           
           <div className="prose max-w-none">
             <p className="text-lg">
-              The author is a renowned economist specializing in sustainable business practices with over 15 years of experience in both academic research and corporate advisory roles. Their work has significantly contributed to the understanding of how companies can implement economically viable sustainability strategies.
+            I rollen som chef för Corporate Engagement på Ethix SRI Advisors rådgav Emma kapitalägare och kapitalförvaltare om hur miljömässiga, sociala och ägarstyrningsfrågor kunde integreras i investeringsprocessen. Hennes engagemang för mänskliga rättigheter manifesterades genom hennes arbete som rådgivare till Amnesty Business Group i Sverige, där hon var en av initiativtagarna.​
             </p>
             
             <p className="mt-4">
-              After completing doctoral studies at Stockholm School of Economics, they went on to become a professor of Economic Sustainability at a leading European university. Their research has been published in prestigious journals including the Journal of Sustainable Economics and Business Strategy Review.
+            Vid Finansdepartementet ansvarade Emma för att integrera hållbarhetsfrågor i ägarstyrningen av statligt ägda bolag, vilket resulterade i att hållbarhet blev en naturlig del av statens ägarstyrning. Hon betonade vikten av att företag förstår och integrerar hållbarhet i sina affärsmodeller och riskhantering för att säkerställa långsiktig lönsamhet. ​
             </p>
             
             <p className="mt-4">
-              Beyond academia, they have worked as a strategic advisor to numerous Fortune 500 companies, helping them develop and implement sustainability frameworks that enhance rather than compromise financial performance. This unique combination of theoretical knowledge and practical experience informs the insights presented in "Håll ut: så skapar företag en hållbar framtid."
+            Som Mannheimer Swartlings första hållbarhetschef lade Emma grunden för byråns hållbarhetsarbete och integrera hållbarhetsfrågor i rådgivningen till klienter. Hennes arbete där stärkte byråns fokus på hållbarhet och bidrog till att positionera dem som en föregångare inom området.​
             </p>
             
             <p className="mt-4">
-              When not researching or advising, they are a frequent speaker at international conferences and has delivered keynotes at the World Economic Forum, Sustainable Business Summit, and numerous industry-specific events focused on the future of sustainable economic practices.
+            Senare tog Emma rollen som Head of Sustainability på Embracer Group, där hon fortsatte att driva hållbarhetsfrågor inom spel och underhållningsbranschen. Hennes förmåga att anpassa sig och tillämpa sin expertis i olika sektorer visar på hennes djupa förståelse för hållbarhetens betydelse över hela näringslivet. ​
+            </p>
+
+            <p className="mt-4">
+            Utöver sina operativa roller har Emma haft diverse styrelseuppdrag och har bland annat varit ordförande för Global Compact Network Sweden och Investor ombudsman i Nordkinn Investment Management.
+            </p>
+
+            <p className="mt-4">
+            Hennes akademiska bakgrund inkluderar en kandidatexamen i nationalekonomi från Stockholms universitet. ​
             </p>
           </div>
         </div>
       </section>
 
-      {/* Areas of Expertise */}
-      <section className="section-slim bg-secondary">
+      <section className="section blue-gradient text-white  flex items-center md:pt-0 md:pb-0">
         <div className="content-wrapper">
-          <SectionHeading 
-            title="Areas of Expertise" 
-            subtitle="Specialized knowledge and research focus"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div className="p-6 bg-white rounded-lg shadow-sm space-y-2 hover:shadow-md transition-shadow">
-              <h3 className="font-serif font-medium">Sustainable Economic Models</h3>
-              <p className="text-sm text-muted-foreground">Developing frameworks for long-term economic sustainability in business operations.</p>
-            </div>
-            
-            <div className="p-6 bg-white rounded-lg shadow-sm space-y-2 hover:shadow-md transition-shadow">
-              <h3 className="font-serif font-medium">ESG Financial Analytics</h3>
-              <p className="text-sm text-muted-foreground">Quantifying the financial impact of environmental, social, and governance factors.</p>
-            </div>
-            
-            <div className="p-6 bg-white rounded-lg shadow-sm space-y-2 hover:shadow-md transition-shadow">
-              <h3 className="font-serif font-medium">Circular Economy</h3>
-              <p className="text-sm text-muted-foreground">Economic benefits of circular business models and resource efficiency.</p>
-            </div>
-            
-            <div className="p-6 bg-white rounded-lg shadow-sm space-y-2 hover:shadow-md transition-shadow">
-              <h3 className="font-serif font-medium">Sustainability Reporting</h3>
-              <p className="text-sm text-muted-foreground">Effective methods for measuring and communicating sustainability performance.</p>
-            </div>
+        <div className="flex flex-wrap gap-8 mx-4 md:mx-12 lg:mx-32">
+            {quotes.map((quote, idx) => (
+              <div key={idx} className="flex-1 p-6 bg-white/10 rounded-lg backdrop-blur-sm">
+                <blockquote>
+                  <div className="flex flex-col items-start justify-between">
+                    <p className="text-lg italic mb-4">
+                      "{quote.quote}"
+                    </p>
+                  </div>
+                </blockquote>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Contact for Speaking */}
-      <section className="section bg-sage-900 text-white">
+      {/* Current Positions */}
+      <section className="section bg-white">
         <div className="content-wrapper">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-serif mb-6">Interested in a Speaking Engagement?</h2>
-            <p className="text-lg mb-8">
-              The author is available for keynotes, workshops, and panel discussions on economic sustainability, business strategy, and related topics.
-            </p>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-sage-900">
-              <a href="mailto:speaking@example.com">
-                Request Speaking Information
-              </a>
-            </Button>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Employment */}
+              <Card className="bg-gradient-to-br from-white to-sage-50 shadow-md border-0">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <h3 className="text-2xl font-serif">Anställning</h3>
+                  </div>
+                  <Separator className="mb-4" />
+                  <div className="space-y-2">
+                    <p className="font-medium">Head of ESG and Nordic Public Affairs</p>
+                    <p className="text-muted-foreground">Asmodee</p>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              {/* Board Positions */}
+              <Card className="bg-gradient-to-br from-white to-sage-50 shadow-md border-0">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <h3 className="text-2xl font-serif">Förtroendeuppdrag</h3>
+                  </div>
+                  <Separator className="mb-4" />
+                  <ul className="space-y-4">
+                    <li>
+                      <p className="font-medium">Vice ordförande</p>
+                      <p className="text-muted-foreground">AP7</p>
+                    </li>
+                    <li>
+                      <p className="font-medium">Styrelseledamot</p>
+                      <p className="text-muted-foreground">Praktikertjänst</p>
+                    </li>
+                    <li>
+                      <p className="font-medium">Ledamot i fullmäktige</p>
+                      <p className="text-muted-foreground">Skandia</p>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

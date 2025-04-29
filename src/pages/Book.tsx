@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Award, Users } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import TopHeading from "@/components/TopHeading";
 //import BookName from '../strapi-components/BookPage';
 import { DataContext } from '../strapi-data/BookPageProvider'; 
+import AboutConcept from "@/strapi-components/aboutConcept";
 
 
 const Book = () => {
@@ -15,47 +17,70 @@ const Book = () => {
   }
   return (
     <>
-      {/* Book Hero */}
-      <section className="relative bg-secondary pt-16 pb-24">
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="blue-pattern w-full h-full"></div>
+    
+    <section className="relative bg-sage-50 overflow-hidden ">
+
+{/* Background image layer */}
+<div
+  className="absolute inset-0 bg-cover bg-center z-0"
+  style={{ backgroundImage: "url('/bakgrundHallut.jpg')" }}
+/>
+
+{/* Semi-transparent black overlay */}
+<div className="absolute inset-0 bg-black/50 z-10" />
+
+{/* Book-pattern overlay */}
+<div className="absolute inset-0 overflow-hidden opacity-10 z-20">
+  <div className="book-pattern w-full h-full" />
+</div>
+
+{/* Actual content, on top */}
+<div className="relative z-30 content-wrapper !pt-12 !pb-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4 md:px-12 lg:px-24">
+
+    {/* Image div - move to top on smaller screens */}
+    <div className="relative mx-auto order-1 md:order-2">
+      <div className="mx-auto w-full max-w-md shadow-lg">
+        <img 
+          src={`http://localhost:1337${BookPage.image.url}`}
+          alt="Descriptive alt text"
+          className="w-full object-cover max-w-full"
+        />
+      </div>
+    </div>
+
+    {/* Text and button div */}
+    <div className="flex flex-col md:order-1">
+      <div>
+        <TopHeading 
+          title={BookPage.BookName}
+          subtitle={BookPage.ShortDescription}
+          align="left"
+          className="mb-6" 
+        />
+        <div className="flex flex-col gap-4">
+          <span className="text-green-400 text-sm">
+            Köp 10, få 20% rabatt!
+          </span>
+          {/* Button under the green text */}
+          <Button asChild size="lg" className="group">
+            <a 
+              href="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center w-1/2 justify-center mx-auto sm:mx-0"
+            >
+              Köp boken
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </Button>
         </div>
-        <div className="content-wrapper">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mx-48">
-            <div>
-      
-              <h1 className="text-3xl md:text-5xl font-serif font-medium mb-6">
-              {BookPage.BookName}
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8">
-              {BookPage.ShortDescription}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="group">
-                  <a 
-                    href="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    Läs mer 
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button>
-              </div>
-            </div>
-            
-            <div className="relative mx-auto">
-            <div className="mx-auto w-full max-w-md shadow-lg">
-                <img 
-                  src={`http://localhost:1337${BookPage.image.url}`}
-                  alt="Descriptive alt text" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
 
       {/* Book Overview */}
       <section className="section">
@@ -105,6 +130,7 @@ const Book = () => {
 
 
       {/* Key Themes */}
+      {/* 
       <section className="section-slim bg-secondary">
         <div className="content-wrapper">
           <SectionHeading 
@@ -118,12 +144,14 @@ const Book = () => {
                   <BookOpen size={24} />
                 </div>
                 <h3 className="text-xl font-serif font-medium">{theme.title}</h3>
-                <p className="text-muted-foreground">{theme.text}</p> {/* Use the theme.text or theme.description here */}
+                <p className="text-muted-foreground">{theme.text}</p> 
               </div>
             ))}
           </div>
         </div>
       </section>
+      */}
+      <AboutConcept />
 
       {/* Table of Contents */}
       <section className="section">

@@ -5,7 +5,7 @@ import { DataContext } from '../strapi-data/CaseProvider';
 const HistoricalArticle = () => {
      const { cases } = useContext(DataContext);
   return (
-    <section className="py-16">
+    <section>
         {cases.map((singleCase) => (
         <div className="container-custom mx-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">

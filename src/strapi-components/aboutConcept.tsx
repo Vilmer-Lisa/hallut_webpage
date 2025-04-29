@@ -3,6 +3,8 @@ import { Book, Scale, Rocket, Globe, Users, ArrowRight, ChevronRight } from 'luc
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import Quote from '@/components/ui/quote'
+import SectionHeading from "@/components/SectionHeading";
+
 
 const aboutConcept = () => {
   const timelineSteps = [
@@ -42,18 +44,13 @@ const aboutConcept = () => {
   ];
   
   return (
-    <section className="px-4 bg-white">
+    <section className="px-4 bg-white py-16">
         <div className="max-w-6xl mx-auto">
-        
-
-        
-
-            
-        
-
-        {/* Key Themes */}
         <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-16 text-gray-800 text-center">Bokens huvudteman</h3>
+          <SectionHeading 
+            title="Bokens huvudteman"
+            align="center"
+          />
           <div className="grid md:grid-cols-3 gap-6">
             {keyThemes.map((theme, index) => (
               <Card key={index} className="border bg-transparent shadow-sm hover:shadow-md transition-shadow">

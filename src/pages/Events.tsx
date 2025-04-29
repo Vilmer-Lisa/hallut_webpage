@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Calendar, MapPin, Video } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import EventCard from "@/components/ui/eventcard";
+import SectionHeading from "@/components/SectionHeading";
 
 // Sample event data
 const events = [
@@ -43,7 +44,10 @@ const events = [
 const Events = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <h3 className="text-xl font-semibold mb-16 text-gray-800">Kommande evenemang</h3>
+      <SectionHeading 
+            title="Kommande evenemang"
+            align="left"
+          />
       
       <div className="space-y-6">
         {events.map((event) => (

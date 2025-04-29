@@ -21,10 +21,11 @@ const Navbar = () => {
 
   const navLinks = [
     { to: "/", label: "Startsida" },
-    { to: "/examples", label: "Case" },
+    { to: "/events", label: "Evenemang" },
+    { to: "/examples", label: "Exempel" },
     { to: "/book", label: "Boken" },
-    { to: "/mentioned", label: "Ytterligare läsning" },
-    { to: "/author", label: "Författaren" },
+    { to: "/mentioned", label: "Läs mer" },
+    { to: "/author", label: "Om mig" },
     { to: "/contact", label: "Kontakt" }
   ];
 
