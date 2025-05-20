@@ -5,7 +5,7 @@ interface ImageData {
   url:string; 
 }
 
-interface Case {
+interface Cases {
   id: number;
   title: string;
   subheading: string;
@@ -19,27 +19,33 @@ interface Case {
   listitem3: string;
   listitem4: string;
   image: ImageData;
+  imagedescription: string;
+}
+interface ExamplesPage {
+  title: string; 
+  description: string; 
+  cases: Cases[]; 
 }
 
 interface DataContextType {
-  cases: Case[];
+  ExamplesPage: ExamplesPage | null;
 }
 
-export const DataContext = createContext<DataContextType>({ cases: [] });
+export const DataContext = createContext<DataContextType>({ ExamplesPage: null });
 
-interface CaseProviderProps {
+interface ExamplesProviderProps {
   children: ReactNode;
 }
 
-const CaseProvider: React.FC<CaseProviderProps> = ({ children }) => {
-  const [cases, setCases] = useState<Case[]>([]);
-  console.log("cases:", cases); 
+const ExamplesProvider: React.FC<ExamplesProviderProps> = ({ children }) => {
+  const [ExamplesPage, setExamplesPage] = useState<ExamplesPage | null>(null);
+  console.log("cases:", ExamplesPage); 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/cases?populate=image')
+    .get('http://localhost:1337/api/examples-page?populate[cases][populate]=image')
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
-        setCases(response.data.data);
+        setExamplesPage(response.data.data);
       })
       .catch((error) => {
         console.error('Error fetching Cases:', error);
@@ -47,10 +53,10 @@ const CaseProvider: React.FC<CaseProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ cases }}>
+    <DataContext.Provider value={{ ExamplesPage }}>
       {children}
     </DataContext.Provider>
   );
 };
 
-export default CaseProvider;
+export default ExamplesProvider;

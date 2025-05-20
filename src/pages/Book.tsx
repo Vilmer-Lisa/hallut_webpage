@@ -8,6 +8,7 @@ import TopHeading from "@/components/TopHeading";
 //import BookName from '../strapi-components/BookPage';
 import { DataContext } from '../strapi-data/BookPageProvider'; 
 import AboutConcept from "@/strapi-components/aboutConcept";
+import CitationCard from "@/components/ui/CitationCard";
 
 
 const Book = () => {
@@ -23,7 +24,7 @@ const Book = () => {
 {/* Background image layer */}
 <div
   className="absolute inset-0 bg-cover bg-center z-0"
-  style={{ backgroundImage: "url('/bakgrundHallut.jpg')" }}
+  style={{ backgroundImage: "url('../img/bakgrundHallut.jpg')" }}
 />
 
 {/* Semi-transparent black overlay */}
@@ -38,16 +39,16 @@ const Book = () => {
 <div className="relative z-30 content-wrapper !pt-12 !pb-12">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-4 md:px-12 lg:px-24">
 
-    {/* Image div - move to top on smaller screens */}
-    <div className="relative mx-auto order-1 md:order-2">
-      <div className="mx-auto w-full max-w-md shadow-lg">
-        <img 
-          src={`http://localhost:1337${BookPage.image.url}`}
-          alt="Descriptive alt text"
-          className="w-full object-cover max-w-full"
-        />
-      </div>
+  <div className="relative mx-auto order-1 md:order-2">
+    <div className="mx-auto w-full max-w-md shadow-lg shadow-white/50 overflow-hidden">
+      <img 
+        src={`http://localhost:1337${BookPage.image.url}`}
+        alt="Descriptive alt text"
+        className="w-full object-cover max-w-full"
+      />
     </div>
+  </div>
+
 
     {/* Text and button div */}
     <div className="flex flex-col md:order-1">
@@ -83,7 +84,7 @@ const Book = () => {
 </section>
 
       {/* Book Overview */}
-      <section className="section">
+      <section>
         <div className="content-wrapper">
           <SectionHeading 
             title="Om boken" 
@@ -91,7 +92,7 @@ const Book = () => {
           />
           
           <div className="prose max-w-none">
-            <p className="text-lg">
+            <p className="">
             {BookPage?.paragraph1}
             </p>
             
@@ -107,54 +108,30 @@ const Book = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section blue-gradient text-white  flex items-center md:pt-0 md:pb-0">
-        <div className="content-wrapper">
-        <div className="flex flex-wrap gap-8 mx-4 md:mx-12 lg:mx-32">
+      <section className="py-8 bg-secondary text-white flex items-center md:pt-0 md:pb-0">
+        <div className="content-wrapper w-full">
+          <div
+            className={`flex flex-wrap gap-8 mx-4 md:mx-12 lg:mx-32 ${
+              BookPage.quotes.length === 1 ? "justify-center" : ""
+            }`}
+          >
             {BookPage.quotes.map((quote, idx) => (
-              <div key={idx} className="flex-1 p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-                <blockquote>
-                  <div className="flex flex-col items-start justify-between">
-                    <p className="text-lg italic mb-4">
-                      {quote.quote}
-                    </p>
-                    <footer className="font-medium text-right">
-                      — {quote.author}
-                    </footer>
-                  </div>
-                </blockquote>
-              </div>
+              <CitationCard 
+                key={idx}
+                text={quote.quote}
+                author={quote.author}
+                large
+              />
             ))}
           </div>
         </div>
       </section>
 
 
-      {/* Key Themes */}
-      {/* 
-      <section className="section-slim bg-secondary">
-        <div className="content-wrapper">
-          <SectionHeading 
-            title="Övergripande teman" 
-            subtitle="Viktiga koncept som presenteras i boken"
-          />
-          <div className={`grid grid-cols-1 md:grid-cols-${BookPage.keythemes.length} gap-8 mt-12`}>
-            {BookPage.keythemes.map((theme, idx) => (
-              <div key={idx} className="p-6 bg-white rounded-lg shadow-sm space-y-4">
-                <div className="h-12 w-12 blue-gradient text-white rounded-full flex items-center justify-center">
-                  <BookOpen size={24} />
-                </div>
-                <h3 className="text-xl font-serif font-medium">{theme.title}</h3>
-                <p className="text-muted-foreground">{theme.text}</p> 
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      */}
       <AboutConcept />
 
       {/* Table of Contents */}
-      <section className="section">
+      <section>
         <div className="content-wrapper">
           <SectionHeading 
             title="Innehåll" 

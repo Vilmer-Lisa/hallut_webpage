@@ -3,58 +3,76 @@ import { Calendar, MapPin, Video } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import EventCard from "@/components/ui/eventcard";
 import SectionHeading from "@/components/SectionHeading";
+import { DataContext } from '../strapi-data/ActivityPageProvider'; 
+import { useContext } from 'react';
 
-// Sample event data
-const events = [
-  {
-    id: 1,
-    title: "Boksläpp och panelsamtal",
-    description: "Vad innebär artificiell intelligens för framtidens arbetsliv, hur kan du komma att påverkas och vilka nya trender är viktiga att hålla koll på i en ständigt snabbföränderlig värld?",
-    date: "26 mars 2025",
-    time: "12:00 - 12:00",
-    location: "Online",
-    type: "Livestream",
-    audience: "För vem: Yrkesverksam",
-    image: "img/timbro.jpg"
-  },
-  {
-    id: 2,
-    title: "Hug på almedalsvecka",
-    description: "I en värld där AI revolutionerar arbetslivet blir livslångt lärande inte bara en möjlighet utan en nödvändighet. Vilka kompetenser krävs för att möta framtidens utmaningar? Hur kan vi som individer...",
-    date: "8 maj 2025",
-    time: "11:30 - 12:15",
-    location: "Online - Webbinarium",
-    type: "Platser kvar",
-    audience: "För vem: Yrkesverksam",
-    image: "img/hug.webp"
-  },
-  {
-    id: 3,
-    title: "Frukostseminarium med Kivra",
-    description: "Varannan svensk uppger att de vill byta jobb eller bransch och fyra av tio ångrar sitt yrkesval. Hur vet man om det är dags att söka sig vidare och hur kommer man fram till vad man verkligen vill...",
-    date: "14 maj 2025",
-    time: "11:30 - 12:15",
-    location: "Online - Webbinarium",
-    type: "Platser kvar",
-    audience: "För vem: Yrkesverksam",
-    image: "img/kivra.png"
-  }
-];
 
 const Events = () => {
-  return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <SectionHeading 
-            title="Kommande evenemang"
-            align="left"
-          />
-      
-      <div className="space-y-6">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
-      </div>
+  const { ActivityPage } = useContext(DataContext);
+  if (!ActivityPage) {
+    return <div className="p-4">Loading...</div>;
+  }
+  const monthMap: Record<string, string> = {
+    januari: "January",
+    februari: "February",
+    mars: "March",
+    april: "April",
+    maj: "May",
+    juni: "June",
+    juli: "July",
+    augusti: "August",
+    september: "September",
+    oktober: "October",
+    november: "November",
+    december: "December",
+  };
+
+  // 2. Convert "14 maj 2025" to a real Date object
+  const parseDate = (dateStr: string): Date => new Date(dateStr);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcomingEvents: typeof ActivityPage.events = [];
+  const pastEvents: typeof ActivityPage.events = [];
+
+  ActivityPage.events.forEach(event => {
+    const eventDate = parseDate(event.date);
+    eventDate.setHours(0, 0, 0, 0);
+    if (eventDate >= today) {
+      upcomingEvents.push(event);
+    } else {
+      pastEvents.push(event);
+    }
+  });
+  
+  const sortedEvents = upcomingEvents.sort((a, b) =>
+    parseDate(a.date).getTime() - parseDate(b.date).getTime()
+  );
+
+return (
+  <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <SectionHeading 
+          title="Kommande aktiviteter"
+          align="left"
+        />
+    
+    <div className="space-y-6 mb-16">
+      {sortedEvents.map((event) => (
+        <EventCard key={event.title} event={event} />
+      ))}
     </div>
+    <SectionHeading 
+          title="Tidigare aktiviteter"
+          align="left"
+        />
+    
+    <div className="space-y-6">
+      {pastEvents.map((event) => (
+        <EventCard key={event.title} event={event} />
+      ))}
+    </div>
+  </div>
   );
 };
 

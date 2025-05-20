@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
-  title: string;
+  title: React.ReactNode; // <-- changed from string
   subtitle?: string;
   className?: string;
   align?: "left" | "center" | "right";

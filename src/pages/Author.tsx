@@ -1,31 +1,32 @@
 import React from "react";
-import { Linkedin, Mail} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Linkedin, Mail, ArrowRight, Quote} from "lucide-react";
+//import Quote from "@/components/ui/AuthorQuote";
 import SectionHeading from "@/components/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import CitationCard from "@/components/ui/CitationCard";
+import { DataContext } from '../strapi-data/AboutMePageProvider'; 
+import { Button } from "@/components/ui/button";
+import { useContext } from 'react';
+
 
 const Author = () => {
-  const quotes = [
-    {
-      quote: "Min yrkesmässiga mission är att hjälpa företag och investerare " + 
-      "att vara ett verktyg för att skapa långsiktigt värde för flera.",
-    },
-    {
-      quote: "Min önskan för egen del är att den dag jag lämnar in ha bidragit med "+ 
-      "mer än vad jag tagit och ha så roligt som möjligt på vägen",
-    },
-  ];
+   const { AboutMePage } = useContext(DataContext);
+    if (!AboutMePage) {
+      return <div className="p-4">Loading...</div>;
+    }
   return (
     <>
       {/* Author Hero */}
-      <section className="relative bg-sage-50 pt-16 pb-24">
+      <section className="relative bg-secondary">
         <div className="content-wrapper">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div className="mx-auto md:col-span-1">
               <div className="aspect-square w-64 md:w-full max-w-xs bg-sage-200 rounded-full overflow-hidden border-4 border-white shadow-md">
               <img
-                src={"../emma.JPG"}
+                src={AboutMePage.picture?.url 
+                  ? `http://localhost:1337${AboutMePage.picture.url}` 
+                  : ''}
                 alt="Book cover"
                 className="w-64 rounded"
               />
@@ -34,20 +35,31 @@ const Author = () => {
             
             <div className="md:col-span-2">
               <h1 className="text-3xl md:text-4xl font-serif font-medium mb-3">
-                Emma Ihre
+              {AboutMePage.name }
               </h1>
               <p className="text-lg text-primary mb-4">
-                Skapare av Håll ut!
+              {AboutMePage.title }
               </p>
               <p className="text-muted-foreground mb-6">
-              Emma Ihre har under flera decennier varit en central gestalt inom hållbarhetsområdet, 
-              med en omfattande erfarenhet som sträcker sig över både offentlig och privat sektor. 
-              Hennes karriär inleddes inom finansiell analys och värdepappershandel, 
-              där hon tidigt engagerade sig i utvecklingen av etiska och hållbara investeringar. ​
+              {AboutMePage.description }
               </p>
-              <div className="flex space-x-4">
+               
+              <div className="flex flex-col gap-2 md:gap-6 md:flex-row mb-4">
+                {/* Citation Card 1 */}
+                <CitationCard 
+                  text= {AboutMePage.quotes[0].quote }      
+                />
+
+                {/* Citation Card 2 */}
+                <CitationCard 
+                  text= {AboutMePage.quotes[1].quote }       
+                />
+              </div>
+
+
+              <div className="flex space-x-8 w-full justify-center md:justify-start">
                 <a 
-                  href="https://linkedin.com" 
+                  href={AboutMePage.linkedin}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-sage-700 hover:text-primary transition-colors"
@@ -55,7 +67,7 @@ const Author = () => {
                   <Linkedin size={24} />
                 </a>
                 <a 
-                  href="mailto:author@example.com"
+                  href={`mailto:${AboutMePage.email}`}
                   className="text-sage-700 hover:text-primary transition-colors"
                 >
                   <Mail size={24} />
@@ -67,101 +79,98 @@ const Author = () => {
       </section>
 
       {/* Biography */}
-      <section className="section">
+      <section>
         <div className="content-wrapper">
           <SectionHeading 
-            title="Biography" 
+            title= {AboutMePage.biography.title}
             align="left"
           />
           
           <div className="prose max-w-none">
-            <p className="text-lg">
-            I rollen som chef för Corporate Engagement på Ethix SRI Advisors rådgav Emma kapitalägare och kapitalförvaltare om hur miljömässiga, sociala och ägarstyrningsfrågor kunde integreras i investeringsprocessen. Hennes engagemang för mänskliga rättigheter manifesterades genom hennes arbete som rådgivare till Amnesty Business Group i Sverige, där hon var en av initiativtagarna.​
-            </p>
-            
-            <p className="mt-4">
-            Vid Finansdepartementet ansvarade Emma för att integrera hållbarhetsfrågor i ägarstyrningen av statligt ägda bolag, vilket resulterade i att hållbarhet blev en naturlig del av statens ägarstyrning. Hon betonade vikten av att företag förstår och integrerar hållbarhet i sina affärsmodeller och riskhantering för att säkerställa långsiktig lönsamhet. ​
-            </p>
-            
-            <p className="mt-4">
-            Som Mannheimer Swartlings första hållbarhetschef lade Emma grunden för byråns hållbarhetsarbete och integrera hållbarhetsfrågor i rådgivningen till klienter. Hennes arbete där stärkte byråns fokus på hållbarhet och bidrog till att positionera dem som en föregångare inom området.​
-            </p>
-            
-            <p className="mt-4">
-            Senare tog Emma rollen som Head of Sustainability på Embracer Group, där hon fortsatte att driva hållbarhetsfrågor inom spel och underhållningsbranschen. Hennes förmåga att anpassa sig och tillämpa sin expertis i olika sektorer visar på hennes djupa förståelse för hållbarhetens betydelse över hela näringslivet. ​
-            </p>
-
-            <p className="mt-4">
-            Utöver sina operativa roller har Emma haft diverse styrelseuppdrag och har bland annat varit ordförande för Global Compact Network Sweden och Investor ombudsman i Nordkinn Investment Management.
-            </p>
-
-            <p className="mt-4">
-            Hennes akademiska bakgrund inkluderar en kandidatexamen i nationalekonomi från Stockholms universitet. ​
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section blue-gradient text-white  flex items-center md:pt-0 md:pb-0">
-        <div className="content-wrapper">
-        <div className="flex flex-wrap gap-8 mx-4 md:mx-12 lg:mx-32">
-            {quotes.map((quote, idx) => (
-              <div key={idx} className="flex-1 p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-                <blockquote>
-                  <div className="flex flex-col items-start justify-between">
-                    <p className="text-lg italic mb-4">
-                      "{quote.quote}"
-                    </p>
-                  </div>
-                </blockquote>
-              </div>
-            ))}
+            <p>{AboutMePage.biography.textsection1}</p>
+            <p className="mt-4">{AboutMePage.biography.textsection2}</p>
+            <p className="mt-4">{AboutMePage.biography.textsection3}</p>
+            <p className="mt-4">{AboutMePage.biography.textsection4}</p>
+            <p className="mt-4">{AboutMePage.biography.textsection5}</p>
+            <p className="mt-4">{AboutMePage.biography.textsection6}</p>
           </div>
         </div>
       </section>
 
       {/* Current Positions */}
-      <section className="section bg-white">
+      {/*
+      <section className="bg-white py-8">
         <div className="content-wrapper">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Employment */}
               <Card className="bg-gradient-to-br from-white to-sage-50 shadow-md border-0">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <h3 className="text-2xl font-serif">Anställning</h3>
+                    <h3 className="text-2xl font-serif">{AboutMePage.occupation.title}</h3>
                   </div>
                   <Separator className="mb-4" />
                   <div className="space-y-2">
-                    <p className="font-medium">Head of ESG and Nordic Public Affairs</p>
-                    <p className="text-muted-foreground">Asmodee</p>
+                    <p className="font-medium">{AboutMePage.occupation.occupation1}</p>
+                    <p className="text-muted-foreground">{AboutMePage.occupation.company1}</p>
                   </div>
                 </CardContent>
               </Card>
-              
-              {/* Board Positions */}
+            
               <Card className="bg-gradient-to-br from-white to-sage-50 shadow-md border-0">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <h3 className="text-2xl font-serif">Förtroendeuppdrag</h3>
+                    <h3 className="text-2xl font-serif">{AboutMePage.voluntary.title}</h3>
                   </div>
                   <Separator className="mb-4" />
                   <ul className="space-y-4">
                     <li>
-                      <p className="font-medium">Vice ordförande</p>
-                      <p className="text-muted-foreground">AP7</p>
+                      <p className="font-medium">{AboutMePage.voluntary.position1}</p>
+                      <p className="text-muted-foreground">{AboutMePage.voluntary.entity1}</p>
                     </li>
                     <li>
-                      <p className="font-medium">Styrelseledamot</p>
-                      <p className="text-muted-foreground">Praktikertjänst</p>
+                      <p className="font-medium">{AboutMePage.voluntary.position2}</p>
+                      <p className="text-muted-foreground">{AboutMePage.voluntary.entity2}</p>
                     </li>
                     <li>
-                      <p className="font-medium">Ledamot i fullmäktige</p>
-                      <p className="text-muted-foreground">Skandia</p>
+                    <p className="font-medium">{AboutMePage.voluntary.position3}</p>
+                    <p className="text-muted-foreground">{AboutMePage.voluntary.entity3}</p>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+      */}
+      {/* Featured Article */}
+      <section className="section-slim bg-white border-b">
+        <div className="content-wrapper">
+        <SectionHeading 
+            title= "Läs min debattartikel i dagens industri!"
+            align="left"
+          />
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative h-[300px] overflow-hidden rounded-lg">
+              <img
+                src="../img/emmaDN.jpg"
+                alt="Featured Article"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-serif">Regelverk får inte försvaga företagens hållbarhetsarbete</h3>
+              <p className="text-muted-foreground">
+              Företag är en stark samhällskraft, en kraft som både vill och har ett ansvar att ta ansvar för framtiden, 
+              men som inte bör försvagas av regelverk som kräver orimliga resurser och ibland leder utvecklingen i fel riktning,
+               skriver Emma Ihre, chef för ESG och Public Affairs i Norden, Asmodee.
+              </p>
+              <Button asChild className="group">
+                <a href="https://example.com/featured-article" target="_blank" rel="noopener noreferrer">
+                  Läs artikeln i Dagens industri
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>

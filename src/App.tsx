@@ -10,9 +10,10 @@ import Book from "./pages/Book";
 import Author from "./pages/Author";
 import Mentioned from "./pages/Mentioned";
 import Examples from "./pages/Examples";
-import Contact from "./pages/Contact";
 import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "@/strapi-components/ScrollTop";
+
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -29,7 +31,6 @@ const App = () => (
             <Route path="/author" element={<Author />} />
             <Route path="/book" element={<Book />} />
             <Route path="/mentioned" element={<Mentioned />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/events" element={<Events />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

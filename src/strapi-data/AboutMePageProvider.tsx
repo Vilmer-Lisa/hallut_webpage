@@ -1,0 +1,85 @@
+import React, { createContext, useState, useEffect, ReactNode } from 'react';
+import axios from 'axios';
+
+//Sub-components
+interface ImageData {
+    url:string; 
+}
+interface DataContextType {
+    AboutMePage: AboutMePage | null;
+}
+
+//Components
+interface Quotes {
+    quote: string;
+    author: string; 
+}
+interface Biography {
+    title: string;
+    textsection1: string; 
+    textsection2: string; 
+    textsection3: string; 
+    textsection4: string; 
+    textsection5: string; 
+    textsection6: string; 
+}
+interface Occupation {
+    title: string;
+    occupation1: string; 
+    company1: string; 
+    occupation2: string; 
+    company2: string; 
+}
+interface Voluntary {
+    title: string;
+    position1: string; 
+    entity1: string; 
+    position2: string; 
+    entity2: string; 
+    position3: string; 
+    entity3: string; 
+}
+
+//The full page
+interface AboutMePage {
+    name: string;
+    title: string; 
+    description: string;
+    quotes: Quotes[]; 
+    linkedin: string; 
+    email: string; 
+    biography: Biography; 
+    occupation: Occupation; 
+    voluntary: Voluntary; 
+    picture: ImageData; 
+}
+
+export const DataContext = createContext<DataContextType>({ AboutMePage: null});
+
+interface AboutMePageProviderProps {
+  children: ReactNode;
+}
+
+const AboutMePageProvider: React.FC<AboutMePageProviderProps> = ({ children }) => {
+  const [AboutMePage, setAboutMePage] = useState<AboutMePage | null>(null);
+
+  useEffect(() => {
+    axios
+    .get('http://localhost:1337/api/about-me-page?populate=*')
+      .then((response) => {
+        console.log("Strapi response AboutMe:", response.data.data);
+        setAboutMePage(response.data.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching Cases:', error);
+      });
+  }, []);
+
+  return (
+    <DataContext.Provider value={{ AboutMePage }}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+export default AboutMePageProvider;

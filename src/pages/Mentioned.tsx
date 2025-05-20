@@ -1,11 +1,10 @@
 
 import React from "react";
-import { ArrowRight, Link as LinkIcon, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useContext } from 'react';
+import { ArrowRight, Link as LinkIcon, Linkedin, BookOpen} from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import TopHeading from "@/components/TopHeading";
-import Di from "../../img/di.png";
-
+import { DataContext } from '../strapi-data/ExplorePageProvider'; 
 
 
 const mentions = [
@@ -52,7 +51,49 @@ const mentions = [
   }
 ];
 
+const researchResources = [
+  {
+    id: "resource-1",
+    title: "Global Compact Network Sweden",
+    description: "Den svenska delen av FN:s Global Compact. Stödjer företag att implementera principer för mänskliga rättigheter, arbetsrätt, miljö och antikorruption.",
+    url: "https://globalcompact.se",
+    icon: <BookOpen className="h-8 w-8 text-primary" />
+  },
+  {
+    id: "resource-2",
+    title: "Swesif - Sveriges forum för hållbara investeringar",
+    description: "Ett oberoende nätverk för aktörer som arbetar med ansvarsfulla investeringar. Arbetar med kunskapsspridning och samverkan inom hållbar finans.",
+    url: "https://swesif.org",
+    icon: <BookOpen className="h-8 w-8 text-primary" />
+  },
+  {
+    id: "resource-3",
+    title: "Mistra Center for Sustainable Markets (Misum)",
+    description: "Ett forskningscenter med fokus på hållbara marknader och hållbart företagande. Arbetar med akademisk forskning, policyutveckling och företagsdialog.",
+    url: "https://www.hhs.se/misum",
+    icon: <BookOpen className="h-8 w-8 text-primary" />
+  },
+  {
+    id: "resource-4",
+    title: "Almi Hållbar utveckling för ditt företag",
+    description: "Råd och stöd för företag som vill arbeta med hållbar utveckling.",
+    url: "https://www.almi.se",
+    icon: <BookOpen className="h-8 w-8 text-primary" />
+  },
+  {
+    id: "resource-5",
+    title: "Företagarna",
+    description: "Hållbarhetsportalen med resurser och verktyg för hållbart företagande.",
+    url: "https://www.foretagarna.se/driva-eget-foretag/hallbarhetsportalen/",
+    icon: <BookOpen className="h-8 w-8 text-primary" />
+  }
+];
+
 const Mentioned = () => {
+  const { ExplorePage } = useContext(DataContext);
+     if (!ExplorePage) {
+       return <div className="p-4">Loading...</div>;
+     }
   return (
     <>
       {/* Examples Hero */}
@@ -60,7 +101,7 @@ const Mentioned = () => {
         {/* Background image layer */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: "url('../bakgrundHallut.jpg')" }}
+          style={{ backgroundImage: "url('../img/bakgrundHallut.jpg')" }}
         />
         
         {/* Dark overlay */}
@@ -74,64 +115,38 @@ const Mentioned = () => {
         {/* Content area (on top of all background layers) */}
         <div className="content-wrapper relative z-30">
           <TopHeading 
-            title="Läs mer" 
-            subtitle="Ytterligare läsning för den som vill lära sig mer om området."
+            title= {ExplorePage.title} 
+            subtitle={ExplorePage.subheading} 
           />
         </div>
       </section>
 
-      {/* Featured Article */}
-      <section className="section-slim bg-white border-b">
-        <div className="content-wrapper">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="relative h-[300px] overflow-hidden rounded-lg">
-              <img
-                src="../emmaDN.jpg"
-                alt="Featured Article"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-serif">Regelverk får inte försvaga företagens hållbarhetsarbete</h3>
-              <p className="text-muted-foreground">
-              Företag är en stark samhällskraft, en kraft som både vill och har ett ansvar att ta ansvar för framtiden, 
-              men som inte bör försvagas av regelverk som kräver orimliga resurser och ibland leder utvecklingen i fel riktning,
-               skriver Emma Ihre, chef för ESG och Public Affairs i Norden, Asmodee.
-              </p>
-              <Button asChild className="group">
-                <a href="https://example.com/featured-article" target="_blank" rel="noopener noreferrer">
-                  Läs artikeln i Dagens industri
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mentions List */}
-      <section className="section">
-        <div className="content-wrapper">
+      <section>
+      <div className="content-wrapper">
+      <SectionHeading 
+            title= {ExplorePage.articletitle} 
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {mentions.map(mention => (
-              <article key={mention.id} className="group">
+            {ExplorePage.articles?.map(mention => (
+              <article className="group">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
                   <span className="flex items-center gap-1">
-                    {mention.sourceIcon}
-                    {mention.source}
+                    <LinkIcon size={20} />
+                    {mention.where}
                   </span>
                   <span className="mx-2">•</span>
                   <span>{mention.date}</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium group-hover:text-primary transition-colors">
-                  <a href={mention.url} target="_blank" rel="noopener noreferrer">
+                  <a href={mention.link} target="_blank" rel="noopener noreferrer">
                     {mention.title}
                   </a>
                 </h3>
-                <p className="text-muted-foreground mt-2 mb-2">{mention.excerpt}</p>
+                <p className="text-muted-foreground mt-2 mb-2">{mention.description}</p>
                 <p className="text-sm font-medium mb-4">By {mention.author}</p>
                 <a 
-                  href={mention.url} 
+                  href={mention.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-primary font-medium hover:underline"
@@ -141,6 +156,42 @@ const Mentioned = () => {
                 </a>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research Resources */}
+      <section className="bg-gradient-to-b from-white to-sage-50">
+        <div className="content-wrapper">
+          <SectionHeading 
+            title={ExplorePage.sciencetitle} 
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+          {ExplorePage.sciences?.map(resource => (
+            <article className="group">
+              <div className="flex items-center text-sm text-muted-foreground mb-2">
+                <span className="flex items-center gap-1">
+                  {React.cloneElement(<BookOpen className="h-8 w-8 text-primary" />, { className: "w-4 h-4" })}
+                </span>
+              </div>
+              <h3 className="text-xl font-serif font-medium group-hover:text-primary transition-colors">
+                <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                  {resource.title}
+                </a>
+              </h3>
+              <p className="text-muted-foreground mt-2 mb-2">{resource.description}</p>
+              <a 
+                href={resource.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-primary font-medium hover:underline"
+              >
+                Besök hemsida
+                <ArrowRight size={16} className="ml-1" />
+              </a>
+            </article>
+          ))}
           </div>
         </div>
       </section>
