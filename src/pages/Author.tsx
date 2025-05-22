@@ -153,21 +153,19 @@ const Author = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[300px] overflow-hidden rounded-lg">
               <img
-                src="../img/emmaDN.jpg"
+                src={AboutMePage.featured?.img.url 
+                  ? `http://localhost:1337${AboutMePage.featured.img.url}` 
+                  : ''}
                 alt="Featured Article"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="space-y-4">
-              <h3 className="text-2xl font-serif">Regelverk får inte försvaga företagens hållbarhetsarbete</h3>
-              <p className="text-muted-foreground">
-              Företag är en stark samhällskraft, en kraft som både vill och har ett ansvar att ta ansvar för framtiden, 
-              men som inte bör försvagas av regelverk som kräver orimliga resurser och ibland leder utvecklingen i fel riktning,
-               skriver Emma Ihre, chef för ESG och Public Affairs i Norden, Asmodee.
-              </p>
+              <h3 className="text-2xl font-serif">{AboutMePage.featured.title}</h3>
+              <p className="text-muted-foreground">{AboutMePage.featured.description}</p>
               <Button asChild className="group">
                 <a href="https://example.com/featured-article" target="_blank" rel="noopener noreferrer">
-                  Läs artikeln i Dagens industri
+                  {AboutMePage.featured.buttontext}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>

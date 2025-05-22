@@ -23,19 +23,12 @@ interface Biography {
     textsection5: string; 
     textsection6: string; 
 }
-interface Occupation {
+interface Featured {
     title: string;
-    occupation1: string; 
-    company1: string; 
-    occupation2: string; 
-    company2: string; 
-}
-interface Voluntary {
-    title: string;
-    position1: string; 
-    entity1: string; 
-    position2: string; 
-    entity2: string; 
+    img: ImageData; 
+    heading: string; 
+    description: string; 
+    buttontext: string; 
     position3: string; 
     entity3: string; 
 }
@@ -49,8 +42,7 @@ interface AboutMePage {
     linkedin: string; 
     email: string; 
     biography: Biography; 
-    occupation: Occupation; 
-    voluntary: Voluntary; 
+    featured: Featured; 
     picture: ImageData; 
 }
 
@@ -65,7 +57,7 @@ const AboutMePageProvider: React.FC<AboutMePageProviderProps> = ({ children }) =
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/about-me-page?populate=*')
+    .get('http://localhost:1337/api/about-me-page?populate[picture]=true&populate[quotes]=true&populate[biography]=true&populate[featured][populate]=img')
       .then((response) => {
         console.log("Strapi response AboutMe:", response.data.data);
         setAboutMePage(response.data.data);

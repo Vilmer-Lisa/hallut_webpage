@@ -20,11 +20,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { to: "/events", label: "Aktiviteter" },
+    { to: "/activities", label: "Aktiviteter" },
     { to: "/examples", label: "Exempel" },
-    { to: "/book", label: "Boken" },
-    { to: "/mentioned", label: "Utforska" },
-    { to: "/author", label: "Om mig" }
+    { to: "/aboutbook", label: "Boken" },
+    { to: "/explore", label: "Utforska" },
+    { to: "/aboutme", label: "Om mig" }
   ];
 
   return (

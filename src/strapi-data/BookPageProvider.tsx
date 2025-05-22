@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 interface ImageData {
   url:string; 
 }
@@ -40,7 +42,8 @@ const BookPageProvider: React.FC<BookPageProviderProps> = ({ children }) => {
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/book-page?populate=*')
+    // `${AboutMePage.featured.img.url}/book-page?populate=*` 
+    .get(`${source}/book-page?populate=*` )
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
         setBookPage(response.data.data);

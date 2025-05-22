@@ -27,7 +27,7 @@ const Footer = () => {
             <h4 className="font-medium text-sage-900">{Footer.quicklinkstitle}</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/events" className="text-sage-700 hover:text-primary text-xs animated-underline">
+                <Link to="/activities" className="text-sage-700 hover:text-primary text-xs animated-underline">
                 {Footer.quicklink1}
                 </Link>
               </li>
@@ -37,17 +37,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/book" className="text-sage-700 hover:text-primary text-xs animated-underline">
+                <Link to="/aboutbook" className="text-sage-700 hover:text-primary text-xs animated-underline">
                 {Footer.quicklink3}
                 </Link>
               </li>
               <li>
-                <Link to="/mentioned" className="text-sage-700 hover:text-primary text-xs animated-underline">
+                <Link to="/explore" className="text-sage-700 hover:text-primary text-xs animated-underline">
                 {Footer.quicklink4}
                 </Link>
               </li>
               <li>
-                <Link to="/author" className="text-sage-700 hover:text-primary text-xs animated-underline">
+                <Link to="/aboutme" className="text-sage-700 hover:text-primary text-xs animated-underline">
                 {Footer.quicklink5}
                 </Link>
               </li>

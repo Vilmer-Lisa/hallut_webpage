@@ -2,16 +2,24 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Award, Users } from "lucide-react";
+import { Book, Scale, Globe, ArrowRight } from 'lucide-react';
+
 import SectionHeading from "@/components/SectionHeading";
 import TopHeading from "@/components/TopHeading";
 //import BookName from '../strapi-components/BookPage';
 import { DataContext } from '../strapi-data/BookPageProvider'; 
 import AboutConcept from "@/strapi-components/aboutConcept";
 import CitationCard from "@/components/ui/CitationCard";
+import { Card, CardContent } from '@/components/ui/card';
 
 
-const Book = () => {
+const AboutBook = () => {
+  const icons = [
+    <Book className="h-6 w-6" />,
+    <Scale className="h-6 w-6" />,
+    <Globe className="h-6 w-6" />
+  ];
+  
   const { BookPage } = useContext(DataContext);
   if (!BookPage) {
     return <div className="p-4">Loading...</div>;
@@ -42,7 +50,7 @@ const Book = () => {
   <div className="relative mx-auto order-1 md:order-2">
     <div className="mx-auto w-full max-w-md shadow-lg shadow-white/50 overflow-hidden">
       <img 
-        src={`http://localhost:1337${BookPage.image.url}`}
+        src={BookPage.image.url}
         alt="Descriptive alt text"
         className="w-full object-cover max-w-full"
       />
@@ -127,8 +135,31 @@ const Book = () => {
         </div>
       </section>
 
-
-      <AboutConcept />
+      <section className="px-4 bg-white py-16">
+        <div className="max-w-6xl mx-auto">
+        <div className="mb-16">
+          <SectionHeading 
+            title="Bokens huvudteman"
+            align="center"
+          />
+          <div className="grid md:grid-cols-3 gap-6">
+            {BookPage.keythemes.map((theme, index) => (
+              <Card key={index} className="border bg-transparent shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gray-50 p-2 rounded-full mr-3 text-black">
+                      {icons[index]}
+                    </div>
+                    <h4 className="font-medium text-black">{theme.title}</h4>
+                  </div>
+                  <p className="text-sm text-black">{theme.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* Table of Contents */}
       <section>
@@ -151,4 +182,4 @@ const Book = () => {
   );
 };
 
-export default Book;
+export default AboutBook;

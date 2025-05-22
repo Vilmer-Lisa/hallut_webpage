@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Book from "./pages/Book";
+import Book from "./pages/AboutBook";
 import Author from "./pages/Author";
 import Mentioned from "./pages/Mentioned";
 import Examples from "./pages/Examples";
@@ -28,10 +28,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/examples" element={<Examples />} />
-            <Route path="/author" element={<Author />} />
-            <Route path="/book" element={<Book />} />
-            <Route path="/mentioned" element={<Mentioned />} />
-            <Route path="/events" element={<Events />} />
+            <Route path="/aboutme" element={<Author />} />
+            <Route path="/aboutbook" element={<Book />} />
+            <Route path="/explore" element={<Mentioned />} />
+            <Route path="/activities" element={<Events />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
