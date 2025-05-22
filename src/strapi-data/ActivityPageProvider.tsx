@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 //Sub-components
 interface ImageData {
     url:string; 
@@ -40,7 +42,7 @@ const ActivityPageProvider: React.FC<ActivityPageProviderProps> = ({ children })
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/activity-page?populate[events][populate]=image')
+    .get( `${source}/activity-page?populate[events][populate]=image`)
       .then((response) => {
         console.log("Strapi response activity:", response.data.data);
         setActivityPage(response.data.data);

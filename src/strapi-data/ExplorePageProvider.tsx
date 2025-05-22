@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 interface DataContextType {
     ExplorePage: ExplorePage | null;
 }
@@ -41,7 +43,7 @@ const ExplorePageProvider: React.FC<ExplorePageProviderProps> = ({ children }) =
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/explore-page?populate=*')
+    .get(`${source}/explore-page?populate=*`)
       .then((response) => {
         console.log("Strapi response Explore:", response.data.data);
         setExplorePage(response.data.data);

@@ -9,15 +9,6 @@ interface ImageData {
 interface DataContextType {
   BookPage: BookPage | null;
 }
-interface KeyTheme {
-  title: string;
-  description: string;
-}
-
-interface Chapter {
-  title: string;
-  content: string;
-}
 
 interface BookPage {
   BookName: string;

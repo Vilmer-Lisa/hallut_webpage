@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 interface DataContextType {
     Footer: Footer | null;
 }
@@ -32,7 +34,7 @@ const FooterProvider: React.FC<FooterProviderProps> = ({ children }) => {
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/bottom-section?populate=*')
+    .get(`${source}/bottom-section?populate=*`)
       .then((response) => {
         console.log("Strapi response Explore:", response.data.data);
         setFooter(response.data.data);

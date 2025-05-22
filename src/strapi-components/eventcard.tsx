@@ -46,7 +46,7 @@ const eventcard = ({ event }: EventCardProps) => {
         <div className="w-full md:w-1/4 flex-shrink-0">
         {event.image && event.image.url ? (
             <img 
-              src={`http://localhost:1337${event.image.url}`} 
+              src={`${event.image.url}`} 
               alt={event.title} 
               className="w-full h-[240px] object-cover object-center rounded-md" 
             />

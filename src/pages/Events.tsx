@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar, MapPin, Video } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import EventCard from "@/components/ui/eventcard";
+import EventCard from "@/strapi-components/eventcard";
 import SectionHeading from "@/components/SectionHeading";
 import { DataContext } from '../strapi-data/ActivityPageProvider'; 
 import { useContext } from 'react';

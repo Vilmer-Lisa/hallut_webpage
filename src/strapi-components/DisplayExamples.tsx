@@ -86,7 +86,7 @@ const DisplayExamples = () => {
               <div className="relative">
                 <img 
                   src={singleCase.image?.url 
-                    ? `http://localhost:1337${singleCase.image.url}` 
+                    ? `${singleCase.image.url}` 
                     : ''}
                   alt="Historical factory with workers" 
                   className="rounded-lg shadow-lg w-full object-cover h-[340px]"

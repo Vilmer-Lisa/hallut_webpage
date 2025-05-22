@@ -25,7 +25,7 @@ const Author = () => {
               <div className="aspect-square w-64 md:w-full max-w-xs bg-sage-200 rounded-full overflow-hidden border-4 border-white shadow-md">
               <img
                 src={AboutMePage.picture?.url 
-                  ? `http://localhost:1337${AboutMePage.picture.url}` 
+                  ? `${AboutMePage.picture.url}` 
                   : ''}
                 alt="Book cover"
                 className="w-64 rounded"
@@ -154,7 +154,7 @@ const Author = () => {
             <div className="relative h-[300px] overflow-hidden rounded-lg">
               <img
                 src={AboutMePage.featured?.img.url 
-                  ? `http://localhost:1337${AboutMePage.featured.img.url}` 
+                  ? `${AboutMePage.featured.img.url}` 
                   : ''}
                 alt="Featured Article"
                 className="w-full h-full object-cover"

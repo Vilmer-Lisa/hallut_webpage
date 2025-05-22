@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 interface ImageData {
   url:string; 
 }
@@ -42,7 +44,7 @@ const ExamplesProvider: React.FC<ExamplesProviderProps> = ({ children }) => {
   console.log("cases:", ExamplesPage); 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/examples-page?populate[cases][populate]=image')
+    .get(`${source}/examples-page?populate[cases][populate]=image`)
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
         setExamplesPage(response.data.data);

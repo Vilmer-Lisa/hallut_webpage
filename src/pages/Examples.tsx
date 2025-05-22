@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import TopHeading from "@/components/TopHeading";
-import HArticle from '../strapi-components/DisplayExamples';
+import DisplayExamples from '../strapi-components/DisplayExamples';
 import { DataContext } from '../strapi-data/CaseProvider';
 
 const Examples = () => {
@@ -28,7 +28,7 @@ const Examples = () => {
         </div>
       </section>
       <section className="section">
-       <HArticle/>
+       <DisplayExamples/>
       </section>
     </>
   );

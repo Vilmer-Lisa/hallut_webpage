@@ -18,7 +18,7 @@ const theHouse = () => {
               {/* House Image */}
               <img 
                 src={HomePage.house.image?.url 
-                  ? `http://localhost:1337${HomePage.house.image.url}` 
+                  ? `${HomePage.house.image.url}` 
                   : ''}
                 className="relative z-10 w-full h-80 object-contain"
                 alt="House"

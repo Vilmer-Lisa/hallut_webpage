@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
+
 //Sub-components
 interface ImageData {
     url:string; 
@@ -57,7 +60,7 @@ const AboutMePageProvider: React.FC<AboutMePageProviderProps> = ({ children }) =
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/about-me-page?populate[picture]=true&populate[quotes]=true&populate[biography]=true&populate[featured][populate]=img')
+    .get(`${source}/about-me-page?populate[picture]=true&populate[quotes]=true&populate[biography]=true&populate[featured][populate]=img`)
       .then((response) => {
         console.log("Strapi response AboutMe:", response.data.data);
         setAboutMePage(response.data.data);

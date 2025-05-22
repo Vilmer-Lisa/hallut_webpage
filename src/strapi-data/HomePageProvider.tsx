@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
 
+const source = "https://proud-canvas-05b17cf098.strapiapp.com/api"
+
 //Sub-components
 interface ImageData {
     url:string; 
@@ -56,7 +58,7 @@ const HomePageProvider: React.FC<HomePageProviderProps> = ({ children }) => {
 
   useEffect(() => {
     axios
-    .get('http://localhost:1337/api/home-page?populate[cover]=*&populate[concept]=*&populate[themes]=*&populate[house][populate]=image')
+    .get(`${source}/home-page?populate[cover]=*&populate[concept]=*&populate[themes]=*&populate[house][populate]=image`)
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
         setHomePage(response.data.data);
