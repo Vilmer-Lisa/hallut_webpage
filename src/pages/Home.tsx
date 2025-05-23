@@ -22,7 +22,7 @@ const Home = () =>{
     {/* Background image (bottom layer) */}
     <div
       className="absolute inset-0 bg-cover bg-center z-0"
-      style={{ backgroundImage: "url('../img/bakgrundHallut.jpg')" }}/>
+      style={{ backgroundImage: `url(${HomePage.bgimage.url})` }}/>
     <div className="absolute inset-0 bg-black/50 z-10" />
     <div className="absolute inset-0 overflow-hidden opacity-10 z-20">
       <div className="book-pattern w-full h-full"></div>

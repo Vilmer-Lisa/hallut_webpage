@@ -7,6 +7,10 @@ interface DataContextType {
     ExplorePage: ExplorePage | null;
 }
 
+interface ImageData {
+  url:string; 
+}
+
 //Components
 interface Articles {
     title: string;
@@ -30,6 +34,7 @@ interface ExplorePage {
     articles: Articles[]; 
     sciencetitle: string;
     sciences: Sciences[]; 
+    bgimage: ImageData;
 }
 
 export const DataContext = createContext<DataContextType>({ ExplorePage: null});

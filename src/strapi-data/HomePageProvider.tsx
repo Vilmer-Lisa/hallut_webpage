@@ -45,6 +45,7 @@ interface HomePage {
     themes: themes;
     concept: concept;
     house: house;
+    bgimage: ImageData;
 }
 
 export const DataContext = createContext<DataContextType>({ HomePage: null});
@@ -58,7 +59,7 @@ const HomePageProvider: React.FC<HomePageProviderProps> = ({ children }) => {
 
   useEffect(() => {
     axios
-    .get(`${source}/home-page?populate[cover]=*&populate[concept]=*&populate[themes]=*&populate[house][populate]=image`)
+    .get(`${source}/home-page?populate[bgimage][populate]=*&populate[cover]=*&populate[concept]=*&populate[themes]=*&populate[house][populate]=image`)
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
         setHomePage(response.data.data);

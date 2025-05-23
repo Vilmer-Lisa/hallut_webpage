@@ -20,6 +20,7 @@ interface BookPage {
   chapters: { chapterNr: number; name: string; description: string }[];
   quotes: { quote: string; author: string }[];
   image: ImageData;
+  bgimage: ImageData;
 }
 
 export const DataContext = createContext<DataContextType>({ BookPage: null});

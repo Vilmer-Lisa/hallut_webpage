@@ -101,7 +101,7 @@ const Mentioned = () => {
         {/* Background image layer */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: "url('../img/bakgrundHallut.jpg')" }}
+          style={{ backgroundImage: `url(${ExplorePage.bgimage.url})` }}
         />
         
         {/* Dark overlay */}

@@ -47,6 +47,7 @@ interface AboutMePage {
     biography: Biography; 
     featured: Featured; 
     picture: ImageData; 
+    bgimage: ImageData;
 }
 
 export const DataContext = createContext<DataContextType>({ AboutMePage: null});

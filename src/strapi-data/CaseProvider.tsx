@@ -27,6 +27,7 @@ interface ExamplesPage {
   title: string; 
   description: string; 
   cases: Cases[]; 
+  bgimage: ImageData; 
 }
 
 interface DataContextType {
@@ -44,7 +45,7 @@ const ExamplesProvider: React.FC<ExamplesProviderProps> = ({ children }) => {
   console.log("cases:", ExamplesPage); 
   useEffect(() => {
     axios
-    .get(`${source}/examples-page?populate[cases][populate]=image`)
+    .get(`${source}/examples-page?populate[bgimage][populate]=*&populate[cases][populate]=image`)
       .then((response) => {
         console.log("Strapi response case:", response.data.data);
         setExamplesPage(response.data.data);

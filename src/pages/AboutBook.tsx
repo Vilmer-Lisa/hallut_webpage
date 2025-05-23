@@ -32,7 +32,7 @@ const AboutBook = () => {
 {/* Background image layer */}
 <div
   className="absolute inset-0 bg-cover bg-center z-0"
-  style={{ backgroundImage: "url('../img/bakgrundHallut.jpg')" }}
+  style={{ backgroundImage: `url(${BookPage.bgimage.url})` }}
 />
 
 {/* Semi-transparent black overlay */}
