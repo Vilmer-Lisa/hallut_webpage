@@ -1,6 +1,4 @@
-
-import React from "react";
-import { useContext } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, LeafIcon} from "lucide-react";
@@ -9,15 +7,31 @@ import TopHeading from "@/components/TopHeading";
 import Journey from "@/strapi-components/journey";
 import TheHouse from "@/strapi-components/theHouse";
 import { DataContext } from '../strapi-data/HomePageProvider'; 
+import Loading from "@/strapi-components/loading";
+
 
 
 const Home = () =>{
   const { HomePage } = useContext(DataContext);
-   if (!HomePage) {
-     return <div className="p-4">Loading...</div>;
-   }
+  const [fadeIn, setFadeIn] = useState(false);
+  useEffect(() => {
+    if (HomePage) {
+      // Slight delay to trigger the fade-in smoothly
+      const timeout = setTimeout(() => setFadeIn(true), 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [HomePage]);
+
+  if (!HomePage) {
+    return <Loading />;
+  }
   return (
     <>
+    <div
+      className={`transition-opacity duration-700 ease-in-out ${
+        fadeIn ? "opacity-100" : "opacity-0"
+      }`}
+    >
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
     {/* Background image (bottom layer) */}
     <div
@@ -86,6 +100,7 @@ const Home = () =>{
     <Journey/>
     <TheHouse />
 </section>
+</div>
 
 </>
 

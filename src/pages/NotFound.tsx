@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from 'lucide-react';
+
 
 const NotFound = () => {
   const location = useLocation();
@@ -16,9 +19,12 @@ const NotFound = () => {
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-4">Oops! Den här sidan existerar inte</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+        <Button asChild size="lg" className="group bg-primary text-white">
+          <a 
+            href="/" className="inline-flex items-center justify-center"> Gå till startsidan
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </Button>
       </div>
     </div>
   );

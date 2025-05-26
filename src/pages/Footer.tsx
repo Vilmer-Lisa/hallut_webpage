@@ -9,9 +9,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { Footer } = useContext(DataContext);
   if (!Footer) {
-    return <div className="p-4">Loading...</div>;
+    return 
   }
-
   return (
     <footer className="bg-sage-50 border-t border-sage-100">
       <div className="container max-w-6xl mx-auto px-4 md:px-8 py-12">

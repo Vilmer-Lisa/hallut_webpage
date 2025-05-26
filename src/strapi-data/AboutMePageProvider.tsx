@@ -34,6 +34,7 @@ interface Featured {
     buttontext: string; 
     position3: string; 
     entity3: string; 
+    link: string; 
 }
 
 //The full page
