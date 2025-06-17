@@ -32,7 +32,7 @@ const Home = () =>{
         fadeIn ? "opacity-100" : "opacity-0"
       }`}
     >
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[65vh] flex items-center overflow-hidden">
     {/* Background image (bottom layer) */}
     <div
       className="absolute inset-0 bg-cover bg-center z-0"

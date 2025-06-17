@@ -130,7 +130,7 @@ const AboutBook = () => {
       </div>
     </div>
     </section>
-
+{/*  
     <section className="px-4 bg-white py-16">
     <div className="max-w-6xl mx-auto">
     <div className="mb-16">
@@ -173,6 +173,7 @@ const AboutBook = () => {
       ))}
     </div>
     </section>
+    */}
   </div>
 </>
   );

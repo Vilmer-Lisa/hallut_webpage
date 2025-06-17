@@ -36,7 +36,7 @@ const journey = () => {
           {/* Timeline visualization with sketch-style graphics */}
             <div className="mb-32">
             <SectionHeading 
-              title="Företagens resa mot hållbarhet"
+              title= {HomePage.themes.title}
               align="center"
             />
                 {/* Sketch-style timeline container */}

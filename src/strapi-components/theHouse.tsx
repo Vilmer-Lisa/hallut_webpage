@@ -25,16 +25,14 @@ const theHouse = () => {
               />
             </div>
   
-            {/* Title */}
+            {/* Title
               <SectionHeading 
                 title={HomePage.house.title}
                 align="center"
               />
-  
-            {/* Text */}
             <p className="text-md text-gray-700 max-w-4xl mb-12">
               {HomePage.house.text}
-            </p>
+            </p> */}
           </div>
   
         </div>
