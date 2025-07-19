@@ -67,7 +67,7 @@ const AboutBook = () => {
             </span>
             <Button asChild size="lg" className="group bg-primary text-white">
               <a 
-                href="https://timbro.se/forlag/hall-ut-sa-skapar-foretag-en-hallbar-framtid/" 
+                href="https://www.adlibris.com/sv/bok/hall-ut-hur-foretagen-skapar-en-hallbar-framtid-9789177034971" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center"
