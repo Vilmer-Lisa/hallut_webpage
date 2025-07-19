@@ -22,12 +22,12 @@ const DisplayExamples = () => {
 
     //console.log(ExamplesPage.cases[0].image.url);
   return (
-    <section className="py-16">
+    <section>
     <div className="space-y-24">
-      {ExamplesPage.cases.map((singleCase, index) => (
+      {ExamplesPage.cases.map((singleCase) => (
         <div className="container-custom mx-8" key={singleCase.id}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <div className= {index % 2 === 0 ? "order-2 md:order-1": "order-2 md:order-2"}>
+          <div className="order-1 lg:order-2">
               <h2 className="text-2xl md:text-3xl font-bold font-serif text-econ-primary mb-4">
                 {singleCase.title}
               </h2>
@@ -81,7 +81,7 @@ const DisplayExamples = () => {
             </Collapsible>
 
             </div>
-            <div className= {index % 2 === 0 ? "order-1 md:order-2": "order-1 md:order-1"}>
+            <div className="order-2 lg:order-1">
         
               <div className="relative">
                 <img 

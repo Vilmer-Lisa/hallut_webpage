@@ -26,10 +26,17 @@ const TopHeading = ({
         className
       )}
     >
-      <h2 className="text-3xl md:text-4xl text-white font-serif mb-4">
-      {title.split(' ')[0] }{" " + title.split(' ')[1]}<br  />
-      {title.split(' ').slice(2).join(' ')}
+    <h2 className="text-3xl md:text-4xl text-white font-serif mb-4">
+      {title.split(' ').length > 1 ? (
+        <>
+          {title.split(' ')[0]}{" "}{title.split(' ')[1]}<br />
+          {title.split(' ').slice(2).join(' ')}
+        </>
+      ) : (
+        title
+      )}
     </h2>
+
       {subtitle && (
         <p className="text-lg text-muted-foreground text-white/80 max-w-2xl mx-auto">
           {subtitle}

@@ -19,6 +19,7 @@ const Examples = () => {
   if (!ExamplesPage) {
     return <Loading />;
   }
+  console.log(ExamplesPage);
 
   return (
     <>
