@@ -34,9 +34,11 @@ const formatDateToSwedish = (dateStr: string): string => {
   });
 };
 
-const formatTime = (timeStr: string): string => {
+const formatTime = (timeStr: string | null | undefined): string => {
+  if (!timeStr) return "–";
   return timeStr.slice(0, 5);
 };
+
 
 const eventcard = ({ event }: EventCardProps) => {
 
