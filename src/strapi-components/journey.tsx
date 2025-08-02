@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useContext } from 'react';
-import { Leaf, ChartNoAxesCombinedIcon, Rocket, HeartHandshake, Book, Scale } from 'lucide-react';
+import { Map, ChartNoAxesCombinedIcon, Rocket, CirclePlus, Book, Scale } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionHeading from "@/components/SectionHeading";
 import { DataContext } from '../strapi-data/HomePageProvider'; 
@@ -14,12 +14,12 @@ const journey = () => {
    }
   const timelineSteps = [
     {
-      icon: <HeartHandshake className="h-8 w-8" />,
+      icon: <CirclePlus className="h-8 w-8" />,
       title: HomePage.themes.area1,
       description: HomePage.themes.text1
     },
     {
-      icon: <Leaf className="h-8 w-8" />,
+      icon: <Map className="h-8 w-8" />,
       title: HomePage.themes.area2,
       description: HomePage.themes.text2
     },
