@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, LeafIcon} from "lucide-react";
+import { ArrowRight, GlobeIcon, LeafIcon} from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import TopHeading from "@/components/TopHeading";
 import Journey from "@/strapi-components/journey";
 import TheHouse from "@/strapi-components/theHouse";
 import { DataContext } from '../strapi-data/HomePageProvider'; 
 import Loading from "@/strapi-components/loading";
+import globeicon from '../../public/img/globeicon.png';
 
 const Home = () =>{
   const { HomePage } = useContext(DataContext);
@@ -76,7 +77,7 @@ const Home = () =>{
 <section className="py-16 bg-white">
   <div className="container mx-auto px-4 text-center">
     <div className="flex justify-center mb-4">
-      <img src="../../globeicon.png" alt="Leaf" className="h-20 w-20" />
+      <img src={globeicon} alt="Leaf" className="h-20 w-20" />
     </div>
     <SectionHeading 
       title={<span className="text-primary">{HomePage.concept.heading}</span>}
