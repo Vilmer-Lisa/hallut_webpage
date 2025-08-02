@@ -76,7 +76,7 @@ const Home = () =>{
 <section className="py-16 bg-white">
   <div className="container mx-auto px-4 text-center">
     <div className="flex justify-center mb-4">
-      <img src="../../globe_icon.png" alt="Leaf" className="h-20 w-20" />
+      <img src="../../globeicon.png" alt="Leaf" className="h-20 w-20" />
     </div>
     <SectionHeading 
       title={<span className="text-primary">{HomePage.concept.heading}</span>}
