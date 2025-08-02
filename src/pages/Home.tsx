@@ -52,7 +52,7 @@ const Home = () =>{
 
         {/* First button: white background, black text */}
         <Button asChild size="lg" className="group min-w-[200px] bg-white text-black hover:text-primary hover:bg-gray-100">
-          <Link to="/book">
+          <Link to="/aboutbook">
           {HomePage.cover.buttontext1}
             <ArrowRight className="transition-transform group-hover:translate-x-1" />
           </Link>
@@ -65,7 +65,7 @@ const Home = () =>{
             variant="outline"
             className="text-white min-w-[200px] border-2 border-white bg-transparent hover:text-black hover:bg-white"
           >
-          <Link to="/events">
+          <Link to="/activities">
           {HomePage.cover.buttontext2}
           </Link>
         </Button>
