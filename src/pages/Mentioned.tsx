@@ -27,30 +27,14 @@ const Mentioned = () => {
         fadeIn ? "opacity-100" : "opacity-0"
       }`}
     >
-    {/* Cover */}
-    <section className="relative bg-sage-50 pt-16 pb-24">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url(${ExplorePage.bgimage.url})` }}
-      />
-      <div className="absolute inset-0 bg-black/50 z-10" />
-      <div className="absolute inset-0 overflow-hidden opacity-10 z-20">
-        <div className="book-pattern w-full h-full"></div>
-      </div>
-      <div className="content-wrapper relative z-30">
-        <TopHeading 
-          title= {ExplorePage.title} 
-          subtitle={ExplorePage.subheading} 
-        />
-      </div>
-    </section>
+   
 
     <section>
     <div className="content-wrapper">
     <SectionHeading 
           title= {ExplorePage.articletitle} 
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mt-16">
           {ExplorePage.articles?.map(mention => (
             <article className="group">
               <div className="flex items-center text-sm text-muted-foreground mb-2">
@@ -89,7 +73,7 @@ const Mentioned = () => {
           title={ExplorePage.sciencetitle} 
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
         {ExplorePage.sciences?.map(resource => (
           <article className="group">
             <div className="flex items-center text-sm text-muted-foreground mb-2">

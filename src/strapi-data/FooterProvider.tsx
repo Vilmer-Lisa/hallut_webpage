@@ -36,7 +36,7 @@ const FooterProvider: React.FC<FooterProviderProps> = ({ children }) => {
     axios
     .get(`${source}/bottom-section?populate=*`)
       .then((response) => {
-        console.log("Strapi response Explore:", response.data.data);
+        console.log("Strapi response Footer:", response.data.data);
         setFooter(response.data.data);
       })
       .catch((error) => {

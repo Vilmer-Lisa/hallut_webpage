@@ -23,7 +23,7 @@ const DisplayExamples = () => {
     //console.log(ExamplesPage.cases[0].image.url);
   return (
     <section>
-    <div className="space-y-24">
+    <div className="space-y-24 mb-16">
       {ExamplesPage.cases.map((singleCase) => (
         <div className="container-custom mx-8" key={singleCase.id}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">

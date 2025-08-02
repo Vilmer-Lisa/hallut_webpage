@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Book from "./pages/AboutBook";
 import Author from "./pages/Author";
-import Mentioned from "./pages/Mentioned";
+import Mentioned from "./pages/mentioned";
 import Examples from "./pages/Examples";
 import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";

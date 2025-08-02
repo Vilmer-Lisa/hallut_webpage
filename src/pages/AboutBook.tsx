@@ -112,7 +112,7 @@ const AboutBook = () => {
     </div>
     </section>
 
-    <section className="py-8 bg-secondary text-white flex items-center md:pt-0 md:pb-0">
+    <section className="py-8 bg-white text-white flex items-center md:pt-0 md:pb-0">
     <div className="content-wrapper w-full">
       <div
         className={`flex flex-wrap gap-8 mx-4 md:mx-12 lg:mx-32 ${

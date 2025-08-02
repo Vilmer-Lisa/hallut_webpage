@@ -16,21 +16,20 @@ const CitationCard: React.FC<CitationCardProps> = ({ text, author, large = false
   const width = large ? "w-full md:max-w-lg" : "w-full md:max-w-sm";
 
   return (
-    <div className={`bg-white rounded-lg shadow-sm ${padding} mb-4 ${width} md:mx-auto`}>
-      <Quote className={`text-primary ${iconSize} flex-shrink-0`} />
+    <div className={`bg-secondary rounded-lg shadow-lg ${padding} mb-4 ${width} md:mx-auto`}>
+      <Quote className={`text-white fill-white ${iconSize} flex-shrink-0`} />
 
       <p className={`mx-4 ${margTop} text-primary ${textSize} flex-1`}>
         {text}
       </p>
 
       {author && (
-        <p className={`mx-4 text-gray-700 font-medium ${margTop} ${authorSize}`}>
+        <p className={`mx-4 text-black font-medium ${margTop} ${authorSize}`}>
           {author}
         </p>
       )}
     </div>
   );
 };
-
 
 export default CitationCard;

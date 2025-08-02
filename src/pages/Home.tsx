@@ -9,8 +9,6 @@ import TheHouse from "@/strapi-components/theHouse";
 import { DataContext } from '../strapi-data/HomePageProvider'; 
 import Loading from "@/strapi-components/loading";
 
-
-
 const Home = () =>{
   const { HomePage } = useContext(DataContext);
   const [fadeIn, setFadeIn] = useState(false);
@@ -78,7 +76,7 @@ const Home = () =>{
 <section className="py-16 bg-white">
   <div className="container mx-auto px-4 text-center">
     <div className="flex justify-center mb-4">
-      <LeafIcon className="h-10 w-10 text-primary" />
+      <img src="../../globe_icon.png" alt="Leaf" className="h-20 w-20" />
     </div>
     <SectionHeading 
       title={<span className="text-primary">{HomePage.concept.heading}</span>}

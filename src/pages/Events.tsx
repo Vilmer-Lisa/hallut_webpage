@@ -63,15 +63,22 @@ return (
     fadeIn ? "opacity-100" : "opacity-0"
   }`}>
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <SectionHeading 
-        title="Kommande aktiviteter"
-        align="left"
-      />
-      <div className="space-y-6 mb-16">
-        {sortedEvents.map((event) => (
+     <SectionHeading 
+      title="Kommande aktiviteter"
+      align="left"
+    />
+    <div className="space-y-6 mb-16">
+      {sortedEvents.length > 0 ? (
+        sortedEvents.map((event) => (
           <EventCard key={event.title} event={event} />
-        ))}
-      </div>
+        ))
+      ) : (
+        <p className="text-gray-600 mt-4">
+          Just nu finns inga kommande aktiviteter, vi uppdaterar här inför nästa evenemang.
+        </p>
+      )}
+    </div>
+
       <SectionHeading 
         title="Tidigare aktiviteter"
         align="left"

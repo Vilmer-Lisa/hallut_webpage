@@ -28,11 +28,11 @@ const Author = () => {
       className={`transition-opacity duration-700 ease-in-out ${
         fadeIn ? "opacity-100" : "opacity-0"
       }`}>
-    <section className="relative bg-secondary">
+    <section className="relative bg-white">
       <div className="content-wrapper">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           <div className="mx-auto md:col-span-1">
-            <div className="aspect-square w-64 md:w-full max-w-xs bg-sage-200 rounded-full overflow-hidden border-4 border-white shadow-md">
+            <div className="aspect-square w-64 md:w-full max-w-xs bg-sage-200 rounded-full overflow-hidden shadow-md">
             <img
               src={AboutMePage.picture?.url 
                 ? `${AboutMePage.picture.url}` 
