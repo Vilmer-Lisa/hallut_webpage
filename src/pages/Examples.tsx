@@ -27,7 +27,7 @@ const Examples = () => {
         className={`transition-opacity duration-700 ease-in-out ${
         fadeIn ? "opacity-100" : "opacity-0"
       }`}>
-        <div className="mb-16 mx-8">
+        <div className="mb-16 mx-4">
           <SubHeading 
             title={ExamplesPage.title}
             subtitle={ExamplesPage.description}
